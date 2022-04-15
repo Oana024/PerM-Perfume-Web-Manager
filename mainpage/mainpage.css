@@ -7,7 +7,6 @@ body{
 #header {
     padding: 10px;
     height: 70px;
-// position: sticky;
     top: 0;
     background: rosybrown;
     text-indent: 20px;
@@ -112,7 +111,6 @@ body{
 }
 
 li {
-//display: inline;
     display: block;
 }
 
@@ -176,7 +174,6 @@ li {
     height: 700px;
     margin-left: 270px;
     margin-top: 20px;
-    float: inside;
     font-size: large;
     text-align: center;
 }
@@ -313,7 +310,6 @@ li {
     .dropbtn-1{
         font-size: 18px;
         padding: 2px 10px;
-    //   margin-left: 10px;
     }
 
     .dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a {
@@ -384,7 +380,6 @@ li {
     .dropbtn-1{
         font-size: 18px;
         padding: 2px 10px;
-    //   margin-left: 10px;
     }
 
     .dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a {
@@ -547,7 +542,6 @@ li {
     .dropbtn-1{
         font-size: 18px;
         padding: 2px 10px;
-    //   margin-left: 10px;
     }
 
     .dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a {
