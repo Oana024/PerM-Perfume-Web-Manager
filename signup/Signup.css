@@ -1,0 +1,301 @@
+body{
+    margin: 0;
+}
+
+#header {
+    padding: 10px;
+    height: 70px;
+// position: sticky;
+    top: 0;
+    background: rosybrown;
+    text-indent: 20px;
+    text-align: left;
+}
+
+#head {
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    color: bisque;
+    margin-top: 15px;
+}
+
+#login {
+    float: right;
+    padding: 10px 30px;
+    margin-right: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    background: bisque;
+    color: black;
+    border-radius: 5px;
+    border: none;
+}
+
+#signup {
+    float: right;
+    padding: 10px 30px;
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background: burlywood;
+    color: black;
+    border-radius: 5px;
+    border: none;
+}
+
+#help {
+    float: right;
+    padding: 10px 30px;
+    margin-right: 100px;
+    font-size: 15px;
+    font-weight: bold;
+    background: blanchedalmond;
+    color: black;
+    border-radius: 5px;
+    border: none;
+}
+
+#about {
+    float: right;
+    padding: 10px 30px;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background: cornsilk;
+    color: black;
+    border-radius: 5px;
+    border: none;
+}
+
+main{
+    width: 550px;
+    height: 870px;
+    background: rosybrown;
+    border-radius: 40px;
+    box-shadow: 5px 20px 50px #000;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+}
+
+h1{
+    color: antiquewhite;
+    font-size: 70px;
+    justify-content: center;
+    display: flex;
+    margin: 30px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+input{
+    width: 60%;
+    height: 20px;
+    background: #e0dede;
+    justify-content: center;
+    display: flex;
+    margin: 0px auto;
+    padding: 17px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+label{
+    color: antiquewhite;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#sign_up{
+    padding: 10px 30px;
+    background: cornsilk;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 228px;
+    border-radius: 5px;
+    border: none;
+}
+
+#sign_up:hover{
+    background: bisque;
+}
+
+#signup:hover{
+    background-color: coral;
+    color: white;
+}
+
+#login:hover{
+    background-color: coral;
+    color: white;
+}
+
+#about:hover{
+    background-color: coral;
+    color: white;
+}
+
+#help:hover{
+    background-color: coral;
+    color: white;
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    main{
+        left: 27%;
+    }
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1025px) {
+
+    #header {
+        text-indent: 10px;
+    }
+
+    #head {
+        font-size: 31px;
+    }
+
+    #login {
+        padding: 10px 15px;
+    }
+
+    #signup {
+        padding: 10px 15px;
+    }
+
+    #help {
+        padding: 10px 15px;
+        margin-right: 25px;
+    }
+
+    #about {
+        padding: 10px 15px;
+        margin-right: 10px;
+    }
+
+    main{
+        left: 18%;
+    }
+
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    #header {
+        text-indent: 5px;
+    }
+
+    #head {
+        font-size: 23px;
+    }
+
+    #login {
+        padding: 10px 6px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    #signup {
+        padding: 10px 6px;
+        font-size: 12px;
+    }
+
+    #help {
+        padding: 10px 6px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    #about {
+        padding: 10px 6px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    main{
+        width: 400px;
+        left: 13%;
+    }
+
+    #sign_up{
+        margin-left: 145px;
+    }
+
+    h1{
+        font-size: 40px;
+    }
+
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 481px) {
+
+    #header {
+        height: 70px;
+        background: rosybrown;
+        text-indent: 0px;
+    }
+
+    #head {
+        font-size: 15px;
+        margin-top: 20px;
+    }
+
+    #login {
+        padding: 10px 2px;
+        font-size: 9px;
+        margin-right: 2px;
+    }
+
+    #signup {
+        padding: 10px 2px;
+        font-size: 9px;
+        margin-right: 2px;
+    }
+
+    #help {
+        padding: 10px 2px;
+        font-size: 9px;
+        margin-right: 2px;
+    }
+
+    #about {
+        padding: 10px 2px;
+        font-size: 9px;
+        margin-right: 2px;
+    }
+
+    main{
+        width: 260px;
+        left: 13%;
+    }
+
+    #sign_up{
+        margin-left: 75px;
+    }
+
+    h1{
+        font-size: 37px;
+    }
+}
