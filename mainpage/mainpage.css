@@ -1,0 +1,625 @@
+body{
+    margin: 0;
+}
+
+/*--------header----------*/
+
+#header {
+    padding: 10px;
+    height: 70px;
+// position: sticky;
+    top: 0;
+    background: rosybrown;
+    text-indent: 20px;
+    text-align: left;
+}
+
+#head {
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    color: bisque;
+    margin-top: 15px;
+}
+
+#login {
+    float: right;
+    padding: 10px 30px;
+    margin-right: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    background: bisque;
+    color: black;
+    border-radius: 5px;
+    border: none;
+}
+
+#login:hover{
+    background-color: coral;
+    color: white;
+}
+
+#signup {
+    float: right;
+    padding: 10px 30px;
+    margin-right: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background: burlywood;
+    color: black;
+    border-radius: 5px;
+    border: none;
+}
+
+#signup:hover{
+    background-color: coral;
+    color: white;
+}
+
+#help {
+    float: right;
+    padding: 10px 30px;
+    margin-right: 100px;
+    font-size: 15px;
+    font-weight: bold;
+    background: blanchedalmond;
+    color: black;
+    border-radius: 5px;
+    border: none;
+}
+
+#help:hover{
+    background-color: coral;
+    color: white;
+}
+
+#about {
+    float: right;
+    padding: 10px 30px;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background: cornsilk;
+    color: black;
+    border-radius: 5px;
+    border: none;
+}
+
+#about:hover {
+    background-color: coral;
+    color: white;
+}
+
+/*---------navbar---------*/
+
+#nav {
+    position: absolute;
+    width: 250px;
+    height: 85%;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: left;
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: bold;
+    background: linen;
+    color: black;
+    border-radius: 10px;
+}
+
+#filter {
+    margin-left: 50px;
+}
+
+li {
+//display: inline;
+    display: block;
+}
+
+
+.dropbtn-1, .dropbtn-2, .dropbtn-3 {
+    padding: 8px 50px;
+    margin-top: 110px;
+    background-color: white;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn-2, .dropbtn-3 {
+    padding: 8px 65px;
+    margin-top: 100px;
+}
+
+.dropdown-1, .dropdown-2, .dropdown-3 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content-1, .dropdown-content-2, .dropdown-content-3 {
+    display: none;
+    position: absolute;
+    background-color: white;
+    font-size: 16px;
+    min-width: 60px;
+    z-index: 1;
+}
+
+.dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a {
+    color: black;
+    padding: 8px 48.5px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content-2 a, .dropdown-content-3 a {
+    padding: 8px 44px;
+}
+
+.dropdown-content-1 a:hover, .dropdown-content-2 a:hover, .dropdown-content-3 a:hover {
+    background-color: bisque
+}
+
+.dropdown-1:hover .dropdown-content-1, .dropdown-2:hover .dropdown-content-2, .dropdown-3:hover .dropdown-content-3 {
+    display: block;
+}
+
+.dropdown-1:hover .dropbtn-1, .dropdown-2:hover .dropbtn-2, .dropdown-3:hover .dropbtn-3 {
+    background-color: burlywood;
+}
+
+/*-----------main-------------*/
+
+#main {
+    height: 700px;
+    margin-left: 270px;
+    margin-top: 20px;
+    float: inside;
+    font-size: large;
+    text-align: center;
+}
+
+.c1{
+    height: 150px;
+    grid-column: 1/2;
+    grid-row : 1/1;
+}
+.c2{
+    height: 150px;
+    grid-column: 2/3;
+    grid-row: 1/1;
+}
+.c3{
+    height: 150px;
+    grid-column: 3/4;
+    grid-row: 1/1;
+}
+.c4 {
+    height: 150px;
+    grid-column: 1/2;
+    grid-row: 2/2;
+}
+.c5{
+    height: 150px;
+    grid-column: 2/3;
+    grid-row : 2/2;
+}
+.c6{
+    height: 150px;
+    grid-column: 3/4;
+    grid-row: 2/2;
+}
+.c7{
+    height: 150px;
+    grid-column: 1/2;
+    grid-row: 3/3;
+}
+.c8 {
+    height: 150px;
+    grid-column: 2/3;
+    grid-row: 3/3;
+}
+
+.c9 {
+    height: 150px;
+    grid-column: 3/4;
+    grid-row: 3/3;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(6em, auto);
+    grid-gap: 1em;
+    align-items: stretch;
+}
+
+.wrapper > div {
+    background: lavender;
+    padding: 1em;
+}
+
+/*.wrapper > div:nth-child(odd) {*/
+/*    background: #004D98;*/
+/*}*/
+
+
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1281px) {
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1025px) {
+
+    #header {
+        text-indent: 10px;
+    }
+
+    #head {
+        font-size: 31px;
+    }
+
+    #login {
+        padding: 10px 15px;
+    }
+
+    #signup {
+        padding: 10px 15px;
+    }
+
+    #help {
+        padding: 10px 15px;
+        margin-right: 25px;
+    }
+
+    #about {
+        padding: 10px 15px;
+        margin-right: 10px;
+    }
+
+
+    #nav {
+        display: none;
+        /*width: 100%;*/
+        /*height: 100px;*/
+        /*justify-content: center;*/
+        /*display: flex;*/
+    }
+
+    #filter {
+        display: none;
+        margin-left: 0;
+    }
+
+    .dropbtn-1{
+        font-size: 18px;
+        padding: 2px 10px;
+    //   margin-left: 10px;
+    }
+
+    .dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a {
+        color: black;
+        padding: 4px 20px;
+        text-decoration: none;
+        display: block;
+    }
+
+    #main{
+        margin-left: 10px;
+        margin-top: 130px;
+    }
+
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    #header {
+        text-indent: 5px;
+    }
+
+    #head {
+        font-size: 23px;
+    }
+
+    #login {
+        padding: 10px 6px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    #signup {
+        padding: 10px 6px;
+        font-size: 12px;
+    }
+
+    #help {
+        padding: 10px 6px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    #about {
+        padding: 10px 6px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    #nav {
+        display: none;
+        /*width: 100%;*/
+        /*height: 100px;*/
+        /*justify-content: center;*/
+        /*display: flex;*/
+    }
+
+    #filter {
+        display: none;
+        margin-left: 0;
+    }
+
+    .dropbtn-1{
+        font-size: 18px;
+        padding: 2px 10px;
+    //   margin-left: 10px;
+    }
+
+    .dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a {
+        color: black;
+        padding: 4px 20px;
+        text-decoration: none;
+        display: block;
+    }
+
+    #main {
+        margin-left: 10px;
+        margin-top: 110px;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-auto-rows: minmax(6em, auto);
+        grid-gap: 1em;
+        align-items: stretch;
+    }
+
+    .wrapper > div {
+        background: lavender;
+        padding: 1em;
+    }
+
+    .c1{
+        height: 150px;
+        grid-column: 1/2;
+        grid-row : 1/1;
+    }
+    .c2{
+        height: 150px;
+        grid-column: 2/3;
+        grid-row: 1/1;
+    }
+    .c3{
+        height: 150px;
+        grid-column: 1/2;
+        grid-row: 2/2;
+    }
+    .c4 {
+        height: 150px;
+        grid-column: 2/3;
+        grid-row: 2/2;
+    }
+    .c5{
+        height: 150px;
+        grid-column: 1/2;
+        grid-row : 3/3;
+    }
+    .c6{
+        height: 150px;
+        grid-column: 2/3;
+        grid-row: 3/3;
+    }
+    .c7{
+        height: 150px;
+        grid-column: 1/2;
+        grid-row: 4/4;
+    }
+    .c8 {
+        height: 150px;
+        grid-column: 2/3;
+        grid-row: 4/4;
+    }
+
+    .c9 {
+        height: 150px;
+        grid-column: 1/2;
+        grid-row: 5/5;
+    }
+
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 481px) {
+
+    #header {
+        padding: 10px;
+        height: 70px;
+        background: rosybrown;
+        text-indent: 0px;
+        text-align: left;
+    }
+
+    #head {
+        font-size: 15px;
+        font-weight: bold;
+        font-style: italic;
+        color: bisque;
+        margin-top: 20px;
+    }
+
+    #login {
+        padding: 10px 2px;
+        background: bisque;
+        font-size: 9px;
+        float: right;
+        font-weight: bold;
+        color: black;
+        margin-right: 2px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    #signup {
+        padding: 10px 2px;
+        background: burlywood;
+        font-size: 9px;
+        float: right;
+        font-weight: bold;
+        color: black;
+        margin-right: 2px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    #help {
+        padding: 10px 2px;
+        background: blanchedalmond;
+        font-size: 9px;
+        font-weight: bold;
+        float: right;
+        margin-right: 2px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    #about {
+        padding: 10px 2px;
+        background: cornsilk;
+        font-size: 9px;
+        font-weight: bold;
+        float: right;
+        margin-right: 2px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    #nav {
+        display: none;
+        /*width: 100%;*/
+        /*height: 100px;*/
+        /*justify-content: center;*/
+        /*display: flex;*/
+    }
+
+    #filter {
+        display: none;
+        margin-left: 0;
+    }
+
+    .dropbtn-1{
+        font-size: 18px;
+        padding: 2px 10px;
+    //   margin-left: 10px;
+    }
+
+    .dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a {
+        color: black;
+        padding: 4px 20px;
+        text-decoration: none;
+        display: block;
+    }
+
+    #main {
+        margin-top: 110px;
+        margin-left: 10px;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-auto-rows: minmax(6em, auto);
+        grid-gap: 1em;
+        align-items: stretch;
+    }
+
+    .wrapper > div {
+        background: lavender;
+        padding: 1em;
+    }
+
+    .c1{
+        height: 150px;
+        grid-column: 1/1;
+        grid-row : 1/1;
+    }
+    .c2{
+        height: 150px;
+        grid-column:  1/1;
+        grid-row: 2/2;
+    }
+    .c3{
+        height: 150px;
+        grid-column:  1/1;
+        grid-row: 3/3;
+    }
+    .c4 {
+        height: 150px;
+        grid-column:  1/1;
+        grid-row: 4/4;
+    }
+    .c5{
+        height: 150px;
+        grid-column:  1/1;
+        grid-row : 5/5;
+    }
+    .c6{
+        height: 150px;
+        grid-column:  1/1;
+        grid-row: 6/6;
+    }
+    .c7{
+        height: 150px;
+        grid-column:  1/1;
+        grid-row: 7/7;
+    }
+    .c8 {
+        height: 150px;
+        grid-column:  1/1;
+        grid-row: 8/8;
+    }
+
+    .c9 {
+        height: 150px;
+        grid-column:  1/1;
+        grid-row: 9/9;
+    }
+}
