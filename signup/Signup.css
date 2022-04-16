@@ -69,7 +69,7 @@ body{
 
 main{
     width: 550px;
-    height: 870px;
+    height: 1200px;
     background: rosybrown;
     border-radius: 40px;
     box-shadow: 5px 20px 50px #000;
@@ -88,7 +88,7 @@ h1{
     font-style: italic;
 }
 
-input{
+.input{
     width: 60%;
     height: 20px;
     background: #e0dede;
@@ -101,7 +101,7 @@ input{
     border-radius: 5px;
 }
 
-label{
+.label{
     color: antiquewhite;
     justify-content: center;
     display: flex;
@@ -117,6 +117,17 @@ label{
     margin-left: 228px;
     border-radius: 5px;
     border: none;
+}
+
+.checkbox {
+    margin-left: 100px;
+    margin-bottom: 10px;
+}
+
+.checktext {
+    margin-left: 20px;
+    color: antiquewhite;
+    font-size: 20px;
 }
 
 #sign_up:hover{
@@ -142,6 +153,7 @@ label{
     background-color: coral;
     color: white;
 }
+
 
 @media (min-width: 1025px) and (max-width: 1280px) {
 
