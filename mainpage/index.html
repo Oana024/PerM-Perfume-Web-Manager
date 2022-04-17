@@ -9,7 +9,9 @@
 <body>
 <header id = "header">
   <div id = "head">
-    Perfume-Web-Manager
+    <button id="logo" onclick="window.location.href='../mainpage/index.html'">
+      Perfume-Web-Manager
+    </button>
 
     <button id = "login" onclick="window.location.href='../login/Login.html'">
       Login
@@ -31,45 +33,41 @@
 </header>
 
 <nav id="nav">
-  <ul>
-    <li id="filter">Filters</li>
-    <li>
-      <div class="dropdown-1">
-        <button class="dropbtn-1">Season</button>
-        <div class="dropdown-content-1">
-          <a href="#">Winter</a>
-          <a href="#">Spring</a>
-          <a href="#">Summer</a>
-          <a href="#">Fall</a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="dropdown-2">
-        <button class="dropbtn-1">Event</button>
-        <div class="dropdown-content-2">
-          <a href="#">Special Event</a>
-          <a href="#">Daily Use</a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="dropdown-3">
-        <button class="dropbtn-1">Brand</button>
-        <div class="dropdown-content-3">
-          <a href="#">Hugo Boss</a>
-          <a href="#">Calvin Klein</a>
-          <a href="#">Armani</a>
-        </div>
-      </div>
-    </li>
-  </ul>
+  <div id="filters">
+    Filters
+  </div>
+
+  <div class="dropdown-1">
+    <button class="dropbtn-1">Season</button>
+    <div class="dropdown-content-1">
+      <a href="#">Winter</a>
+      <a href="#">Spring</a>
+      <a href="#">Summer</a>
+      <a href="#">Fall</a>
+    </div>
+  </div>
+
+  <div class="dropdown-2">
+    <button class="dropbtn-2">Event</button>
+    <div class="dropdown-content-2">
+      <a href="#">Special Event</a>
+      <a href="#">Daily Use</a>
+    </div>
+  </div>
+
+  <div class="dropdown-3">
+    <button class="dropbtn-3">Brand</button>
+    <div class="dropdown-content-3">
+      <a href="#">Hugo Boss</a>
+      <a href="#">Calvin Klein</a>
+      <a href="#">Armani</a>
+    </div>
+  </div>
+
 </nav>
 
-
-
 <main id = "main">
-  <div class="wrapper">
+  <div class="produse">
     <div class="c1">Produs 1</div>
     <div class="c2">Produs 2</div>
     <div class="c3">Produs 3</div>
@@ -82,6 +80,11 @@
   </div>
 </main>
 
+<!--<footer id="footer">-->
+<!--  <button id="report">-->
+<!--    Report-->
+<!--  </button>-->
+<!--</footer>-->
 
 </body>
 </html>

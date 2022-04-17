@@ -14,11 +14,16 @@ body{
 }
 
 #head {
-    font-size: 40px;
+    margin-top: 15px;
+}
+
+#logo {
+    background: none;
+    border: none;
+    font-size: 30px;
     font-weight: bold;
     font-style: italic;
     color: bisque;
-    margin-top: 15px;
 }
 
 #login {
@@ -31,6 +36,7 @@ body{
     color: black;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
 }
 
 #login:hover{
@@ -48,6 +54,7 @@ body{
     color: black;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
 }
 
 #signup:hover{
@@ -65,6 +72,7 @@ body{
     color: black;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
 }
 
 #help:hover{
@@ -82,6 +90,7 @@ body{
     color: black;
     border-radius: 5px;
     border: none;
+    cursor: pointer;
 }
 
 #about:hover {
@@ -94,36 +103,34 @@ body{
 #nav {
     position: absolute;
     width: 250px;
-    height: 85%;
-    margin-top: 10px;
+    height: 100%;
+    margin-top: 15px;
     margin-left: 10px;
-    text-align: left;
-    font-size: 20px;
-    font-style: oblique;
+    text-align: center;
     font-weight: bold;
     background: linen;
-    color: black;
     border-radius: 10px;
 }
 
-#filter {
-    margin-left: 50px;
+#filters {
+    margin-top: 10px;
+    font-size: 30px;
+    font-style: oblique;
 }
 
-li {
-    display: block;
-}
-
-
-.dropbtn-1{
-    padding: 8px 50px;
-    margin-top: 110px;
+.dropbtn-1, .dropbtn-2, .dropbtn-3{
+    padding: 10px 60px;
+    margin-top: 100px;
     background-color: white;
-    color: black;
     font-size: 15px;
     font-weight: bold;
     border: none;
     cursor: pointer;
+}
+
+.dropbtn-2, .dropbtn-3{
+    padding: 10px 66.5px;
+    margin-top: 130px;
 }
 
 .dropdown-1, .dropdown-2, .dropdown-3 {
@@ -142,13 +149,14 @@ li {
 
 .dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a {
     color: black;
-    padding: 8px 48.5px;
+    padding: 6px 58.5px;
     text-decoration: none;
+    background: seashell;
     display: block;
 }
 
-.dropdown-content-2 a, .dropdown-content-3 a {
-    padding: 8px 44px;
+.dropdown-content-3 a {
+    padding: 8px 50px;
 }
 
 .dropdown-content-1 a:hover, .dropdown-content-2 a:hover, .dropdown-content-3 a:hover {
@@ -169,70 +177,51 @@ li {
     height: 700px;
     margin-left: 270px;
     margin-top: 20px;
-    font-size: large;
     text-align: center;
-}
-
-.c1{
-    height: 150px;
-    grid-column: 1/2;
-    grid-row : 1/1;
-}
-.c2{
-    height: 150px;
-    grid-column: 2/3;
-    grid-row: 1/1;
-}
-.c3{
-    height: 150px;
-    grid-column: 3/4;
-    grid-row: 1/1;
-}
-.c4 {
-    height: 150px;
-    grid-column: 1/2;
-    grid-row: 2/2;
-}
-.c5{
-    height: 150px;
-    grid-column: 2/3;
-    grid-row : 2/2;
-}
-.c6{
-    height: 150px;
-    grid-column: 3/4;
-    grid-row: 2/2;
-}
-.c7{
-    height: 150px;
-    grid-column: 1/2;
-    grid-row: 3/3;
-}
-.c8 {
-    height: 150px;
-    grid-column: 2/3;
-    grid-row: 3/3;
-}
-
-.c9 {
-    height: 150px;
-    grid-column: 3/4;
-    grid-row: 3/3;
-}
-
-.wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-auto-rows: minmax(6em, auto);
-    grid-gap: 1em;
-    align-items: stretch;
 }
 
-.wrapper > div {
-    background: lavender;
-    padding: 1em;
+.produse {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    padding: 10px;
 }
+
+.produse > div {
+    background: lavender;
+    text-align: center;
+    font-size: 20px;
+}
+
+/*-----------footer-----------*/
+
+/*#footer {*/
+/*   // height: 50px;*/
+/*    width: 100%;*/
+/*    background: rosybrown;*/
+/*    text-align: center;*/
+/*  //  margin-left: 40%;*/
+/*    border-radius: 10px;*/
+/*    position: relative;*/
+/*}*/
+
+/*#report {*/
+/*    margin-top: 7px;*/
+/*    padding: 10px 40px;*/
+/*    text-align: center;*/
+/*    background: lemonchiffon;*/
+/*    font-weight: bold;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+
+/*}*/
+
+/*#report:hover{*/
+/*    background: gold;*/
+/*}*/
+
+/*-----------redim-----------*/
 
 @media (min-width: 1281px) {}
 
@@ -244,10 +233,6 @@ li {
 
     #header {
         text-indent: 10px;
-    }
-
-    #head {
-        font-size: 31px;
     }
 
     #login {
@@ -270,13 +255,34 @@ li {
 
 
     #nav {
-        display: none;
+        width: 180px;
+    }
+
+    .dropbtn-1, .dropbtn-2, .dropbtn-3{
+        padding: 10px 50px;
+    }
+
+    .dropbtn-2, .dropbtn-3{
+        padding: 10px 56.5px;
+    }
+
+    .dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a {
+        padding: 6px 48.5px;
+    }
+
+    .dropdown-content-3 a {
+        padding: 8px 40px;
     }
 
     #main{
-        margin-left: 10px;
+        margin-left: 200px;
         margin-top: 10px;
     }
+
+    .produse {
+        grid-template-columns: auto;
+    }
+
 
 }
 
@@ -286,8 +292,8 @@ li {
         text-indent: 5px;
     }
 
-    #head {
-        font-size: 23px;
+    #logo {
+        font-size: 20px;
     }
 
     #login {
@@ -314,7 +320,26 @@ li {
     }
 
     #nav {
-        display: none;
+        position: relative;
+        width: 100%;
+        height: 200px;
+    }
+
+    .dropbtn-1, .dropbtn-2, .dropbtn-3{
+        padding: 10px 50px;
+        margin-top: 50px;
+    }
+
+    .dropbtn-2, .dropbtn-3{
+        padding: 10px 46.5px;
+    }
+
+    .dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a {
+        padding: 6px 47.5px;
+    }
+
+    .dropdown-content-2 a, .dropdown-content-3 a {
+        padding: 8px 30px;
     }
 
     #main {
@@ -322,135 +347,64 @@ li {
         margin-top: 10px;
     }
 
-    .wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-auto-rows: minmax(6em, auto);
-        grid-gap: 1em;
-        align-items: stretch;
+    .produse {
+        grid-template-columns: auto;
     }
-
-    .wrapper > div {
-        background: lavender;
-        padding: 1em;
-    }
-
-    .c1{
-        height: 150px;
-        grid-column: 1/2;
-        grid-row : 1/1;
-    }
-    .c2{
-        height: 150px;
-        grid-column: 2/3;
-        grid-row: 1/1;
-    }
-    .c3{
-        height: 150px;
-        grid-column: 1/2;
-        grid-row: 2/2;
-    }
-    .c4 {
-        height: 150px;
-        grid-column: 2/3;
-        grid-row: 2/2;
-    }
-    .c5{
-        height: 150px;
-        grid-column: 1/2;
-        grid-row : 3/3;
-    }
-    .c6{
-        height: 150px;
-        grid-column: 2/3;
-        grid-row: 3/3;
-    }
-    .c7{
-        height: 150px;
-        grid-column: 1/2;
-        grid-row: 4/4;
-    }
-    .c8 {
-        height: 150px;
-        grid-column: 2/3;
-        grid-row: 4/4;
-    }
-
-    .c9 {
-        height: 150px;
-        grid-column: 1/2;
-        grid-row: 5/5;
-    }
-
 }
 
 @media (min-width: 320px) and (max-width: 481px) {
 
     #header {
-        padding: 10px;
-        height: 70px;
-        background: rosybrown;
         text-indent: 0px;
-        text-align: left;
     }
 
-    #head {
-        font-size: 15px;
-        font-weight: bold;
-        font-style: italic;
-        color: bisque;
-        margin-top: 20px;
+    #logo {
+        font-size: 13px;
     }
 
     #login {
         padding: 10px 2px;
-        background: bisque;
         font-size: 9px;
-        float: right;
-        font-weight: bold;
-        color: black;
         margin-right: 2px;
-        border-radius: 5px;
-        border: none;
     }
 
     #signup {
         padding: 10px 2px;
-        background: burlywood;
         font-size: 9px;
-        float: right;
-        font-weight: bold;
-        color: black;
         margin-right: 2px;
-        border-radius: 5px;
-        border: none;
     }
 
     #help {
         padding: 10px 2px;
-        background: blanchedalmond;
         font-size: 9px;
-        font-weight: bold;
-        float: right;
         margin-right: 2px;
-        border-radius: 5px;
-        border: none;
     }
 
     #about {
         padding: 10px 2px;
-        background: cornsilk;
         font-size: 9px;
-        font-weight: bold;
-        float: right;
         margin-right: 2px;
-        border-radius: 5px;
-        border: none;
     }
 
     #nav {
-        display: none;
+        position: relative;
+        width: 100%;
+        height: 100px;
+    }
+
+    .dropbtn-1, .dropbtn-2, .dropbtn-3{
+        padding: 10px 20px;
+        margin-top: 20px;
+        font-size: 10px;
+    }
+
+    .dropbtn-2, .dropbtn-3{
+        padding: 10px 26.5px;
+    }
+
+    .dropdown-content-1 a, .dropdown-content-2 a, .dropdown-content-3 a {
+        padding: 8px 19px;
+        font-size: 10px;
     }
 
     #main {
@@ -458,64 +412,7 @@ li {
         margin-left: 10px;
     }
 
-    .wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        grid-auto-rows: minmax(6em, auto);
-        grid-gap: 1em;
-        align-items: stretch;
-    }
-
-    .wrapper > div {
-        background: lavender;
-        padding: 1em;
-    }
-
-    .c1{
-        height: 150px;
-        grid-column: 1/1;
-        grid-row : 1/1;
-    }
-    .c2{
-        height: 150px;
-        grid-column:  1/1;
-        grid-row: 2/2;
-    }
-    .c3{
-        height: 150px;
-        grid-column:  1/1;
-        grid-row: 3/3;
-    }
-    .c4 {
-        height: 150px;
-        grid-column:  1/1;
-        grid-row: 4/4;
-    }
-    .c5{
-        height: 150px;
-        grid-column:  1/1;
-        grid-row : 5/5;
-    }
-    .c6{
-        height: 150px;
-        grid-column:  1/1;
-        grid-row: 6/6;
-    }
-    .c7{
-        height: 150px;
-        grid-column:  1/1;
-        grid-row: 7/7;
-    }
-    .c8 {
-        height: 150px;
-        grid-column:  1/1;
-        grid-row: 8/8;
-    }
-
-    .c9 {
-        height: 150px;
-        grid-column:  1/1;
-        grid-row: 9/9;
+    .produse {
+        grid-template-columns: auto;
     }
 }
