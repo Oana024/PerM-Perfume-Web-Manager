@@ -196,30 +196,29 @@ body{
 
 /*-----------footer-----------*/
 
-/*#footer {*/
-/*   // height: 50px;*/
-/*    width: 100%;*/
-/*    background: rosybrown;*/
-/*    text-align: center;*/
-/*  //  margin-left: 40%;*/
-/*    border-radius: 10px;*/
-/*    position: relative;*/
-/*}*/
+#footer {
+    width: 100%;
+    background: rosybrown;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+}
 
-/*#report {*/
-/*    margin-top: 7px;*/
-/*    padding: 10px 40px;*/
-/*    text-align: center;*/
-/*    background: lemonchiffon;*/
-/*    font-weight: bold;*/
-/*    border: none;*/
-/*    border-radius: 5px;*/
+#report {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 10px 50px;
+    text-align: center;
+    background: lemonchiffon;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-/*}*/
-
-/*#report:hover{*/
-/*    background: gold;*/
-/*}*/
+#report:hover{
+    background: gold;
+}
 
 /*-----------redim-----------*/
 
