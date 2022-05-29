@@ -14,21 +14,29 @@ $db = $database->getConnection();
 
 $items = new Product($db);
 
-$items->id = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
+$items->setId((isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0');
 
 $data = json_decode(file_get_contents("php://input"));
 
-if (!empty($data->id)) {
-    $items->id = $data->id;
-    if ($items->delete()) {
-        http_response_code(200);
-        echo json_encode(array("message" => "Item was deleted."));
-    } else {
-        http_response_code(503);
-        echo json_encode(array("message" => "Unable to delete item."));
-    }
+if ($items->delete()) {
+    http_response_code(200);
+    echo json_encode(array("message" => "Item was deleted."));
 } else {
-    http_response_code(400);
-    echo json_encode(array("message" => "Unable to delete items. Data is incomplete."));
+    http_response_code(503);
+    echo json_encode(array("message" => "Unable to delete item."));
 }
+//
+//if (!empty($data->id)) {
+//    $items->id = $data->id;
+//    if ($items->delete()) {
+//        http_response_code(200);
+//        echo json_encode(array("message" => "Item was deleted."));
+//    } else {
+//        http_response_code(503);
+//        echo json_encode(array("message" => "Unable to delete item."));
+//    }
+//} else {
+//    http_response_code(400);
+//    echo json_encode(array("message" => "Unable to delete items. Data is incomplete."));
+//}
 ?>

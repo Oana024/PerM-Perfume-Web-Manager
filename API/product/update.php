@@ -15,13 +15,16 @@ $items = new Product($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
-if (!empty($data->id) && !empty($data->name) &&
-    !empty($data->description)) {
+if (!empty($data->id) && !empty($data->name) && !empty($data->brand) && !empty($data->gender) &&
+    !empty($data->price) && !empty($data->description) && !empty($data->stock)) {
 
-    $items->id = $data->id;
-    $items->name = $data->name;
-    $items->description = $data->description;
-    $items->price = $data->price;
+    $items->setId($data->id);
+    $items->setName($data->name);
+    $items->setBrand($data->brand);
+    $items->setGender($data->gender);
+    $items->setPrice($data->price);
+    $items->setDescription($data->description);
+    $items->setStock($data->stock);
 
     if ($items->update()) {
         http_response_code(200);

@@ -1,6 +1,6 @@
 <?php
 class User{
-    private $productTable = "users";
+    private $userTable = "users";
     private $connection;
     private $id;
     private $first_name;
@@ -21,7 +21,7 @@ class User{
     function create()
     {
         $stmt = $this->connection->prepare("
-		INSERT INTO " . $this->productTable . "
+		INSERT INTO " . $this->userTable . "
 		(`first_name`, `last_name`, `birthdate`, `username`, `email`, `password`, `gender`, `favourite_taste`)
 		VALUES(?,?,?,?,?,?,?,?)");
 
@@ -47,10 +47,10 @@ class User{
     function read()
     {
         if ($this->id) {
-            $stmt = $this->connection->prepare("SELECT * FROM " . $this->productTable . " WHERE id = ?");
+            $stmt = $this->connection->prepare("SELECT * FROM " . $this->userTable . " WHERE id = ?");
             $stmt->bind_param("i", $this->id);
         } else {
-            $stmt = $this->connection->prepare("SELECT * FROM " . $this->productTable);
+            $stmt = $this->connection->prepare("SELECT * FROM " . $this->userTable);
         }
         $stmt->execute();
         $result = $stmt->get_result();
@@ -59,13 +59,13 @@ class User{
 
     function delete()
     {
-        $stmt = $this->connection->prepare("SELECT * FROM " . $this->productTable . " WHERE id = ?");
+        $stmt = $this->connection->prepare("SELECT * FROM " . $this->userTable . " WHERE id = ?");
         $stmt -> bind_param("i", $this->id);
         $stmt -> execute();
         $result = $stmt->get_result();
 
         if(mysqli_num_rows($result) > 0){
-            $stmt = $this->connection->prepare("DELETE FROM " . $this->productTable . " WHERE id = ?");
+            $stmt = $this->connection->prepare("DELETE FROM " . $this->userTable . " WHERE id = ?");
 
             $stmt->bind_param("i", $this->id);
 
@@ -79,7 +79,7 @@ class User{
     function update()
     {
         $stmt = $this->connection->prepare("
-		UPDATE " . $this->productTable . " 
+		UPDATE " . $this->userTable . " 
 		SET first_name= ?, last_name = ?, birthdate = ?, username = ?, email = ?, password = ?, gender = ?, favourite_taste = ?
 		WHERE id = ?");
 

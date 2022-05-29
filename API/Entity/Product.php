@@ -4,10 +4,13 @@ class Product
 {
     private $productTable = "products";
     private $connection;
-    public $id;
-    public $name;
-    public $price;
-    public $description;
+    private $id;
+    private $name;
+    private $brand;
+    private $gender;
+    private $price;
+    private $description;
+    private $stock;
 
     public function __construct($db)
     {
@@ -17,14 +20,18 @@ class Product
     function create()
     {
         $stmt = $this->connection->prepare("
-		INSERT INTO " . $this->productTable . "(`name`, `description`, `price`)
-		VALUES(?,?,?)");
+		INSERT INTO " . $this->productTable . "(`name`, `brand`, `gender`, `price`, `description`, `stock`)
+		VALUES(?,?,?,?,?,?)");
 
         $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->description = htmlspecialchars(strip_tags($this->description));
+        $this->brand = htmlspecialchars(strip_tags($this->brand));
+        $this->gender = htmlspecialchars(strip_tags($this->gender));
         $this->price = htmlspecialchars(strip_tags($this->price));
+        $this->description = htmlspecialchars(strip_tags($this->description));
+        $this->stock = htmlspecialchars(strip_tags($this->stock));
 
-        $stmt->bind_param("ssi", $this->name, $this->description, $this->price);
+        $stmt->bind_param("sssisi", $this->name, $this->brand, $this->gender,
+            $this->price, $this->description, $this->stock);
 
         if ($stmt->execute()) {
             return true;
@@ -51,15 +58,19 @@ class Product
 
         $stmt = $this->connection->prepare("
 		UPDATE " . $this->productTable . " 
-		SET name= ?, description = ?, price = ?
+		SET name= ?, brand = ?, gender = ?, price = ?, description = ?, stock = ?
 		WHERE id = ?");
 
         $this->id = htmlspecialchars(strip_tags($this->id));
         $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->description = htmlspecialchars(strip_tags($this->description));
+        $this->brand = htmlspecialchars(strip_tags($this->brand));
+        $this->gender = htmlspecialchars(strip_tags($this->gender));
         $this->price = htmlspecialchars(strip_tags($this->price));
+        $this->description = htmlspecialchars(strip_tags($this->description));
+        $this->stock = htmlspecialchars(strip_tags($this->stock));
 
-        $stmt->bind_param("ssii", $this->name, $this->description, $this->price, $this->id);
+        $stmt->bind_param("sssisii", $this->name, $this->brand, $this->gender, $this->price,
+            $this->description, $this->stock, $this->id);
 
         if ($stmt->execute()) {
             return true;
@@ -70,19 +81,20 @@ class Product
 
     function delete()
     {
+        $stmt = $this->connection->prepare("SELECT * FROM " . $this->productTable . " WHERE id = ?");
+        $stmt -> bind_param("i", $this->id);
+        $stmt -> execute();
+        $result = $stmt->get_result();
 
-        $stmt = $this->connection->prepare("
-		DELETE FROM " . $this->productTable . " 
-		WHERE id = ?");
+        if(mysqli_num_rows($result) > 0){
+            $stmt = $this->connection->prepare("DELETE FROM " . $this->productTable . " WHERE id = ?");
 
-        $this->id = htmlspecialchars(strip_tags($this->id));
+            $stmt->bind_param("i", $this->id);
 
-        $stmt->bind_param("i", $this->id);
-
-        if ($stmt->execute()) {
-            return true;
+            if ($stmt->execute()) {
+                return true;
+            }
         }
-
         return false;
     }
 
@@ -121,6 +133,38 @@ class Product
     /**
      * @return mixed
      */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * @param mixed $brand
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param mixed $gender
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getPrice()
     {
         return $this->price;
@@ -149,6 +193,23 @@ class Product
     {
         $this->description = $description;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    /**
+     * @param mixed $stock
+     */
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
+    }
+
 }
 
 ?>
