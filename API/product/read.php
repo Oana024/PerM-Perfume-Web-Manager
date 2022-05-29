@@ -10,7 +10,7 @@ $db = $database->getConnection();
 
 $items = new Product($db);
 
-$items->id = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
+$items->setId((isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0');
 
 $result = $items->read();
 
@@ -22,8 +22,11 @@ if ($result->num_rows > 0) {
         $itemDetails = array(
             "id" => $id,
             "name" => $name,
+            "brand" => $brand,
+            "gender" => $gender,
+            "price" => $price,
             "description" => $description,
-            "price" => $price
+            "stock" => $stock
         );
         array_push($itemRecords["items"], $itemDetails);
     }
