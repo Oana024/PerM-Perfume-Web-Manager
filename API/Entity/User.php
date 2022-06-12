@@ -44,6 +44,19 @@ class User{
         return false;
     }
 
+    function verify() {
+        $stmt = $this->connection->prepare("SELECT * FROM " . $this->userTable . " WHERE email = ?");
+        $stmt -> bind_param("s", $this->email);
+        $stmt -> execute();
+        $result = $stmt->get_result();
+
+        if(mysqli_num_rows($result) > 0){
+            return false;
+        }
+
+        return true;
+    }
+
     function read()
     {
         if ($this->id) {

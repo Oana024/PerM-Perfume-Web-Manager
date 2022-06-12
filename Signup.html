@@ -8,11 +8,11 @@
 <body>
 <header id = "header">
     <div id = "head">
-        <button id="logo" onclick="window.location.href='../mainpage/index.html'">
+        <button id="logo" onclick="window.location.href='mainpage/index.html'">
             Perfume-Web-Manager
         </button>
 
-        <button id = "login" onclick="window.location.href='../login/Login.html'">
+        <button id = "login" onclick="window.location.href='login/Login.html'">
             Login
         </button>
 
@@ -20,48 +20,48 @@
             Sign Up
         </button>
 
-        <button id = "help" onclick="window.location.href='../help/Help.html'">
+        <button id = "help" onclick="window.location.href='help/Help.html'">
             Help
         </button>
 
-        <button id = "about" onclick="window.location.href='../about/About.html'">
+        <button id = "about" onclick="window.location.href='about/About.html'">
             About
         </button>
 
     </div>
 </header>
 <main id = "main">
-    <form>
+    <form class="sign-up-form" action = "API/user/create.php" method="POST">
         <h1>Sign up</h1>
 
         <label class="label" for="first_name">First Name</label>
-        <input class="input" type="text" id="first_name" name="first_name" placeholder="First Name"><br><br>
+        <input class="input" type="text" id="first_name" name="first_name" placeholder="First Name" required><br><br>
 
         <label class="label" for="last_name">Last Name</label>
-        <input class="input" type="text" id="last_name" name="last_name" placeholder="Last Name"><br><br>
+        <input class="input" type="text" id="last_name" name="last_name" placeholder="Last Name" required><br><br>
 
         <label class="label" for="birth_date">Birth Date</label>
-        <input class="input" type="text" id="birth_date" name="birth_date" placeholder="Birth Date"><br><br>
+        <input class="input" type="text" id="birth_date" name="birth_date" placeholder="Birth Date" required><br><br>
 
-        <label class="label" for="user_name">User name</label>
-        <input class="input" type="text" id="user_name" name="user_name" placeholder="User name"><br><br>
+        <label class="label" for="username">Username</label>
+        <input class="input" type="text" id="username" name="username" placeholder="Username" required><br><br>
 
         <label class="label" for="email">E-Mail</label>
-        <input class="input" type="text" id="email" name="email" placeholder="E-Mail"><br><br>
+        <input class="input" type="text" id="email" name="email" placeholder="E-Mail" required><br><br>
 
         <label class="label" for="pswd">Password</label>
-        <input class="input" type="text" id="pswd" name="pswd" placeholder="Password"><br><br>
+        <input class="input" type="password" id="pswd" name="pswd" placeholder="Password" required><br><br>
 
         <label class="label">Gender</label>
 
         <div>
-            <input class="checkbox" type="checkbox" id="Feminin" name="Feminin">
-            <label class="checktext" for="Feminin">Feminin</label>
+            <input class="checkbox" type="radio" id="Feminine" name="gender[]" value="Feminine">
+            <label class="checktext" for="Feminine">Feminine</label>
         </div>
 
         <div>
-            <input class="checkbox" type="checkbox" id="masculin" name="masculin">
-            <label class="checktext" for="masculin">Masculin</label>
+            <input class="checkbox" type="radio" id="male" name="gender[]" value="Male">
+            <label class="checktext" for="male">Male</label>
         </div>
 
         <label class="label">Select your tastes:</label>
