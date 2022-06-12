@@ -14,28 +14,57 @@ $db = $database->getConnection();
 
 $user = new User($db);
 
-$data = json_decode(file_get_contents("php://input"));
+$data = new User($db);
 
-if (!empty($data->first_name) && !empty($data->last_name) && !empty($data->birthdate)
-    && !empty($data->username) && !empty($data->email) && !empty($data->password) && !empty($data->gender)) {
+$data->setFirstName($_POST['first_name']);
+$data->setLastName($_POST['last_name']);
+$data->setBirthdate($_POST['birth_date']);
+$data->setUsername($_POST['username']);
+$data->setEmail($_POST['email']);
+$data->setPassword($_POST['pswd']);
 
-    $user->setFirstName($data->first_name);
-    $user->setLastName($data->last_name);
-    $user->setBirthdate($data->birthdate);
-    $user->setUsername($data->username);
-    $user->setEmail($data->email);
-    $user->setPassword($data->password);
-    $user->setGender($data->gender);
-    $user->setFavouriteTaste($data->favourite_taste);
+$gender='null';
+if(!empty($_POST['gender'])) {
+    foreach ($_POST['gender'] as $value)
+        $gender = $value;
+}
 
-    if ($user->create()) {
-        http_response_code(201);
-        echo json_encode(array("message" => "Item was created."));
-    } else {
-        http_response_code(503);
-        echo json_encode(array("message" => "Unable to create item."));
+$data->setGender($gender);
+
+
+if (!empty($data->getFirstName()) && !empty($data->getLastName()) && !empty($data->getBirthdate())
+    && !empty($data->getUsername()) && !empty($data->getEmail()) && !empty($data->getPassword()) && !empty($data->getGender())) {
+
+    $user->setFirstName($data->getFirstName());
+    $user->setLastName($data->getLastName());
+    $user->setBirthdate($data->getBirthdate());
+    $user->setUsername($data->getUsername());
+    $user->setEmail($data->getEmail());
+    $user->setPassword($data->getPassword());
+    $user->setGender($data->getGender());
+    $user->setFavouriteTaste($data->getFavouriteTaste());
+
+    if($user->verify()) {
+        if ($user->create()) {
+            http_response_code(201);
+            $errors[] = "Item was created.";
+          //  echo json_encode(array("message" => "Item was created."));
+          //  echo "Item was created.";
+        } else {
+            http_response_code(503);
+          //  echo json_encode(array("message" => "Unable to create item."));
+            $errors[] = "Unable to create item.";
+        }
+    }
+    else{
+        http_response_code(409);
+       // echo json_encode(array("message" => "Unable to create account. Email already used"));
+        $errors[] = "Unable to create account. Email already used";
     }
 } else {
     http_response_code(400);
-    echo json_encode(array("message" => "Unable to create item. Data is incomplete."));
+    //echo json_encode(array("message" => "Unable to create item. Data is incomplete."));
+    $errors[] =  "Unable to create item. Data is incomplete.";
 }
+
+    print_r($errors);
