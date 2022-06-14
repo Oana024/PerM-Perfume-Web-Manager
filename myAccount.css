@@ -1,0 +1,314 @@
+body{
+    margin: 0;
+}
+
+#header {
+    padding: 10px;
+    height: 70px;
+    top: 0;
+    background: rosybrown;
+    text-indent: 20px;
+    text-align: left;
+}
+
+#head {
+    margin-top: 15px;
+}
+
+#logo {
+    background: none;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+    color: bisque;
+}
+
+#logout{
+    float: right;
+    padding: 10px 20px;
+    margin-right: 40px;
+    text-indent: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background: bisque;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+#acc{
+    float: right;
+    padding: 10px 20px;
+    margin-right: 5px;
+    text-indent: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background: burlywood;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+#help {
+    float: right;
+    padding: 10px 30px;
+    margin-right: 100px;
+    font-size: 15px;
+    font-weight: bold;
+    background: blanchedalmond;
+    color: black;
+    border-radius: 5px;
+    border: none;
+}
+
+#about {
+    float: right;
+    padding: 10px 30px;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    background: cornsilk;
+    color: black;
+    border-radius: 5px;
+    border: none;
+}
+
+main{
+    width: 550px;
+    height: 700px;
+    background: rosybrown;
+    border-radius: 40px;
+    box-shadow: 5px 20px 50px #000;
+    position: absolute;
+    top: 17%;
+    left: 35%;
+}
+
+h1{
+    color: antiquewhite;
+    font-size: 60px;
+    justify-content: center;
+    display: flex;
+    margin: 60px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+input{
+    width: 60%;
+    height: 20px;
+    background: #e0dede;
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    padding: 17px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+label{
+    color: antiquewhite;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#log_in{
+    padding: 10px 30px;
+    background: cornsilk;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 228px;
+    margin-top: 30px;
+    border-radius: 5px;
+    border: none;
+}
+
+#log_in:hover{
+    background: bisque;
+}
+
+#myAccount:hover{
+    background-color: coral;
+    color: white;
+}
+
+#logout:hover{
+    background-color: coral;
+    color: white;
+}
+
+#about:hover{
+    background-color: coral;
+    color: white;
+}
+
+#help:hover{
+    background-color: coral;
+    color: white;
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    main{
+        top: 17%;
+        left: 27%;
+    }
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1025px) {
+
+    #header {
+        text-indent: 10px;
+    }
+
+    #logout {
+        padding: 10px 11px;
+    }
+
+    #acc {
+        padding: 10px 11px;
+    }
+
+    #help {
+        padding: 10px 15px;
+        margin-right: 25px;
+    }
+
+    #about {
+        padding: 10px 15px;
+        margin-right: 10px;
+    }
+
+    main{
+        top: 17%;
+        left: 18%;
+    }
+
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    #header {
+        text-indent: 5px;
+    }
+
+    #logo {
+        font-size: 20px;
+    }
+
+    #logout {
+        padding: 10px 1px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    #acc {
+        padding: 10px 1px;
+        font-size: 12px;
+    }
+
+    #help {
+        padding: 10px 6px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    #about {
+        padding: 10px 6px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+
+    main{
+        width: 400px;
+        top: 17%;
+        left: 13%;
+    }
+
+    #log_in{
+        margin-left: 150px;
+    }
+
+    h1{
+        font-size: 40px;
+    }
+
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 481px) {
+
+    #header {
+        height: 70px;
+        background: rosybrown;
+        text-indent: 0px;
+    }
+
+    #logo {
+        font-size: 13px;
+    }
+
+    #logout {
+        padding: 10px 2px;
+        font-size: 9px;
+        margin-right: 1px;
+    }
+
+    #acc{
+        padding: 10px 0px;
+        font-size: 9px;
+        margin-right: 0px;
+    }
+
+    #help {
+        padding: 10px 2px;
+        font-size: 9px;
+        margin-right: 2px;
+    }
+
+    #about {
+        padding: 10px 2px;
+        font-size: 9px;
+        margin-right: 2px;
+    }
+
+    main{
+        width: 260px;
+        height: 600px;
+        top: 14%;
+        left: 13%;
+    }
+
+    #log_in{
+        margin-left: 82px;
+    }
+
+    h1{
+        font-size: 37px;
+    }
+}

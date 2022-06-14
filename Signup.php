@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Signup</title>
     <link rel="stylesheet" href="Signup.css" type="text/css" />
+    <style>
+        body {background: url(https://img.uquiz.com/content/images/quiz_share_images/1597919473.jpg);}
+    </style>
 </head>
 <body>
 
