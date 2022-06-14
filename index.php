@@ -20,7 +20,7 @@
         if(isset($_SESSION['userId'])) {
             echo "
                     <a id='logout' href='API/user/logout.php'>Logout</a>
-                    <a id='acc'>Account</a>
+                    <a id='acc' href='myAccount.php'>Account</a>
                 ";
         }
         else {
