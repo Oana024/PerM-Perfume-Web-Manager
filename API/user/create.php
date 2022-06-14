@@ -31,6 +31,14 @@ if(!empty($_POST['gender'])) {
 
 $data->setGender($gender);
 
+$taste='null';
+if(!empty($_POST['taste'])) {
+    foreach ($_POST['taste'] as $value)
+        $taste = $value;
+}
+
+$data->setFavouriteTaste($taste);
+
 
 if (!empty($data->getFirstName()) && !empty($data->getLastName()) && !empty($data->getBirthdate())
     && !empty($data->getUsername()) && !empty($data->getEmail()) && !empty($data->getPassword()) && !empty($data->getGender())) {
@@ -44,27 +52,39 @@ if (!empty($data->getFirstName()) && !empty($data->getLastName()) && !empty($dat
     $user->setGender($data->getGender());
     $user->setFavouriteTaste($data->getFavouriteTaste());
 
-    if($user->verify()) {
-        if ($user->create()) {
-            http_response_code(201);
-            $errors[] = "Item was created.";
-          //  echo json_encode(array("message" => "Item was created."));
-          //  echo "Item was created.";
-        } else {
-            http_response_code(503);
-          //  echo json_encode(array("message" => "Unable to create item."));
-            $errors[] = "Unable to create item.";
+    $result = $user->verifyEmail();
+
+    if($result == 1) {
+        if($user->verifyUsername()) {
+            if(!$user->verifyDate()){
+                header('Location: ../../Signup.php?signup=date');
+                exit();
+            }
+            if ($user->create()) {
+                header('Location: ../../index.php?signup=success');
+                exit();
+            } else {
+                http_response_code(503);
+                exit();
+            }
+        }
+        else{
+            //username already exists
+            http_response_code(409);
+            header('Location: ../../Signup.php?signup=username');
+            exit();
         }
     }
-    else{
-        http_response_code(409);
-       // echo json_encode(array("message" => "Unable to create account. Email already used"));
-        $errors[] = "Unable to create account. Email already used";
+    else if($result == 0){
+        //wrong email format
+        http_response_code(422);
+        header('Location: ../../Signup.php?signup=format');
+        exit();
     }
-} else {
-    http_response_code(400);
-    //echo json_encode(array("message" => "Unable to create item. Data is incomplete."));
-    $errors[] =  "Unable to create item. Data is incomplete.";
+    else{
+        //email already exists
+        http_response_code(409);
+        header('Location: ../../Signup.php?signup=email');
+        exit();
+    }
 }
-
-    print_r($errors);

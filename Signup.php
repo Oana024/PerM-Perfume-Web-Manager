@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Signup</title>
-    <link rel="stylesheet" href="Signup.css">
+    <link rel="stylesheet" href="Signup.css" type="text/css" />
 </head>
 <body>
+
 <header id = "header">
     <div id = "head">
-        <button id="logo" onclick="window.location.href='mainpage/index.html'">
+        <button id="logo" onclick="window.location.href='index.php'">
             Perfume-Web-Manager
         </button>
 
-        <button id = "login" onclick="window.location.href='login/Login.html'">
+        <button id = "login" onclick="window.location.href='Login.php'">
             Login
         </button>
 
-        <button id = "signup" onclick="window.location.href='../signup/Signup.html'">
+        <button id = "signup" onclick="window.location.href='Signup.php'">
             Sign Up
         </button>
 
@@ -64,40 +65,40 @@
             <label class="checktext" for="male">Male</label>
         </div>
 
-        <label class="label">Select your tastes:</label>
+        <label class="label">Select your taste:</label>
 
         <div>
-            <input class="checkbox" type="checkbox" id="Floral" name="Floral">
+            <input class="checkbox" type="radio" id="Floral" name="taste[]" value="Floral">
             <label class="checktext" for="Floral">Floral</label>
         </div>
 
         <div>
-            <input class="checkbox" type="checkbox" id="Aromatic" name="Aromatic">
+            <input class="checkbox" type="radio" id="Aromatic"name="taste[]" value="Aromatic">
             <label class="checktext" for="Aromatic">Aromatic</label>
         </div>
 
         <div>
-            <input class="checkbox" type="checkbox" id="Amber" name="Amber">
+            <input class="checkbox" type="radio" id="Amber" name="taste[]" value="Amber">
             <label class="checktext" for="Amber">Amber</label>
         </div>
 
         <div>
-            <input class="checkbox" type="checkbox" id="Chypre" name="Chypre">
+            <input class="checkbox" type="radio" id="Chypre" name="taste[]" value="Chypre">
             <label class="checktext" for="Chypre">Chypre</label>
         </div>
 
         <div>
-            <input class="checkbox" type="checkbox" id="Citrus" name="Citrus">
+            <input class="checkbox" type="radio" id="Citrus" name="taste[]" value="Citrus">
             <label class="checktext" for="Citrus">Citrus</label>
         </div>
 
         <div>
-            <input class="checkbox" type="checkbox" id="Leather" name="Leather">
+            <input class="checkbox" type="radio" id="Leather" name="taste[]" value="Leather">
             <label class="checktext" for="Leather">Leather</label>
         </div>
 
         <div>
-            <input class="checkbox" type="checkbox" id="Woody" name="Woody">
+            <input class="checkbox" type="radio" id="Woody" name="taste[]" value="Woody">
             <label class="checktext" for="Woody">Woody</label>
         </div>
 
@@ -105,6 +106,26 @@
             Sign up
         </button>
     </form>
+
+    <?php
+       $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+       if(strpos($fullUrl, "signup=email") == true) {
+           echo '<p class="error"> This email is already used!</p>';
+          exit();
+     }
+      elseif (strpos($fullUrl, "signup=username") == true) {
+         echo '<p class="error"> This username is already used!</p>';
+         exit();
+     }
+      elseif(strpos($fullUrl, "signup=format") == true) {
+          echo '<p class="error"> Format of email is wrong!</p>';
+          exit();
+     }
+       elseif(strpos($fullUrl, "signup=date") == true) {
+        echo '<p class="error"> Format of date is wrong!</p>';
+          exit();
+      }
+     ?>
 </main>
 </body>
 </html>

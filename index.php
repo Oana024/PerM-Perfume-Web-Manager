@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,26 +13,45 @@
 <body>
 <header id = "header">
   <div id = "head">
-    <button id="logo" onclick="window.location.href='../mainpage/index.html'">
+    <button id="logo" onclick="window.location.href='index.php'">
       Perfume-Web-Manager
     </button>
+      <?php
+        if(isset($_SESSION['userId'])) {
+            echo "
+                    <a id='logout' href='API/user/logout.php'>Logout</a>
+                    <a id='acc'>Account</a>
+                ";
+        }
+        else {
+            echo "
+                <button id = \"login\" onclick=\"window.location.href='Login.php'\">
+                  Login
+                </button>
 
-    <button id = "login" onclick="window.location.href='../login/Login.html'">
-      Login
-    </button>
+                <button id = \"signup\" onclick=\"window.location.href='Signup.php'\">
+                  Sign Up
+                </button>
+                ";
+        }
+      ?>
 
-    <button id = "signup" onclick="window.location.href='../Signup.html'">
-      Sign Up
-    </button>
 
-    <button id = "help" onclick="window.location.href='../help/Help.html'">
+<!--    <button id = "login" onclick="window.location.href='Login.php'">-->
+<!--      Login-->
+<!--    </button>-->
+<!---->
+<!--    <button id = "signup" onclick="window.location.href='Signup.php'">-->
+<!--      Sign Up-->
+<!--    </button>-->
+
+    <button id = "help" onclick="window.location.href='help/Help.html'">
       Help
     </button>
 
-    <button id = "about" onclick="window.location.href='../about/About.html'">
+    <button id = "about" onclick="window.location.href='about/About.html'">
       About
     </button>
-
   </div>
 </header>
 
@@ -81,7 +104,7 @@
 </main>
 
 <footer id="footer">
-  <button id="report" onclick="window.location.href='../report/Report.html'">
+  <button id="report" onclick="window.location.href='report/Report.html'">
     Report
   </button>
 </footer>
