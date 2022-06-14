@@ -25,17 +25,14 @@ class User{
 		(`first_name`, `last_name`, `birthdate`, `username`, `email`, `password`, `gender`, `favourite_taste`)
 		VALUES(?,?,?,?,?,?,?,?)");
 
-        $this->first_name = htmlspecialchars(strip_tags($this->first_name));
-        $this->last_name = htmlspecialchars(strip_tags($this->last_name));
-        $this->birthdate = htmlspecialchars(strip_tags($this->birthdate));
-        $this->username = htmlspecialchars(strip_tags($this->username));
-        $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->password = htmlspecialchars(strip_tags($this->password));
-        $this->gender = htmlspecialchars(strip_tags($this->gender));
-        $this->favourite_taste = htmlspecialchars(strip_tags($this->favourite_taste));
+        if($this->favourite_taste == null){
+            $this->favourite_taste = "";
+        }
+
+        $hashpassword = password_hash($this->password, PASSWORD_DEFAULT);
 
         $stmt->bind_param("ssssssss", $this->first_name, $this->last_name, $this->birthdate,
-            $this->username, $this->email, $this->password, $this->gender, $this->favourite_taste);
+            $this->username, $this->email, $hashpassword, $this->gender, $this->favourite_taste);
 
         if ($stmt->execute()) {
             return true;
@@ -44,9 +41,25 @@ class User{
         return false;
     }
 
-    function verify() {
+    function verifyEmail() {
         $stmt = $this->connection->prepare("SELECT * FROM " . $this->userTable . " WHERE email = ?");
         $stmt -> bind_param("s", $this->email);
+        $stmt -> execute();
+        $result = $stmt->get_result();
+
+        if(mysqli_num_rows($result) > 0){
+            return -1;
+        }
+
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL))
+            return 0;
+
+        return 1;
+    }
+
+    function verifyUsername() {
+        $stmt = $this->connection->prepare("SELECT * FROM " . $this->userTable . " WHERE username = ?");
+        $stmt -> bind_param("s", $this->username);
         $stmt -> execute();
         $result = $stmt->get_result();
 
@@ -55,6 +68,34 @@ class User{
         }
 
         return true;
+    }
+
+    function verifyDate() {
+        return (date('d-m-Y', strtotime($this->birthdate)) == $this->birthdate);
+    }
+
+    function validUser() {
+        $stmt = $this->connection->prepare("SELECT * FROM " . $this->userTable . " WHERE username = ?");
+        $stmt -> bind_param("s", $this->username);
+        $stmt -> execute();
+        $result = $stmt->get_result();
+
+        if(mysqli_num_rows($result) < 1){
+            return -1;
+        }
+
+        $stmt = $this->connection->prepare("SELECT id, password FROM " . $this->userTable . " WHERE username = ?");
+        $stmt -> bind_param("s", $this->username);
+        $stmt -> execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        $check = password_verify($this->password, $row["password"]);
+
+        if($check == false)
+            return -2;
+
+        return $row["id"];
     }
 
     function read()

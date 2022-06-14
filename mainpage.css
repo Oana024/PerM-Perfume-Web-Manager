@@ -26,6 +26,48 @@ body{
     color: bisque;
 }
 
+#logout{
+    float: right;
+    padding: 10px 20px;
+    margin-right: 40px;
+    text-indent: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background: bisque;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+#logout:hover{
+    background-color: coral;
+    color: white;
+}
+
+#acc{
+    float: right;
+    padding: 10px 20px;
+    margin-right: 5px;
+    text-indent: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background: burlywood;
+    color: black;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+#acc:hover{
+    background-color: coral;
+    color: white;
+}
+
 #login {
     float: right;
     padding: 10px 30px;
@@ -234,12 +276,12 @@ body{
         text-indent: 10px;
     }
 
-    #login {
-        padding: 10px 15px;
+    #login, #logout {
+        padding: 10px 11px;
     }
 
-    #signup {
-        padding: 10px 15px;
+    #signup, #acc {
+        padding: 10px 11px;
     }
 
     #help {
@@ -295,14 +337,14 @@ body{
         font-size: 20px;
     }
 
-    #login {
-        padding: 10px 6px;
+    #login, #logout {
+        padding: 10px 1px;
         font-size: 12px;
         margin-right: 5px;
     }
 
-    #signup {
-        padding: 10px 6px;
+    #signup, #acc {
+        padding: 10px 1px;
         font-size: 12px;
     }
 
@@ -361,28 +403,34 @@ body{
         font-size: 13px;
     }
 
-    #login {
+    #login, #logout {
         padding: 10px 2px;
         font-size: 9px;
-        margin-right: 2px;
+        margin-right: 1px;
     }
 
     #signup {
-        padding: 10px 2px;
+        padding: 10px 0px;
         font-size: 9px;
-        margin-right: 2px;
+        margin-right: 1px;
+    }
+
+    #acc{
+        padding: 10px 0px;
+        font-size: 9px;
+        margin-right: 0px;
     }
 
     #help {
-        padding: 10px 2px;
+        padding: 10px 0px;
         font-size: 9px;
-        margin-right: 2px;
+        margin-right: 1px;
     }
 
     #about {
-        padding: 10px 2px;
+        padding: 10px 0px;
         font-size: 9px;
-        margin-right: 2px;
+        margin-right: 1px;
     }
 
     #nav {

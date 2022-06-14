@@ -2,6 +2,13 @@ body{
     margin: 0;
 }
 
+.error {
+    color: darkred;
+    font-size: 40px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+
 #header {
     padding: 10px;
     height: 70px;
