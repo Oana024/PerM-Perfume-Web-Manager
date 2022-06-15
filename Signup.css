@@ -1,12 +1,13 @@
-body{
+body {
     margin: 0;
 }
 
 .error {
     color: darkred;
     font-size: 40px;
-    margin-top: 60px;
     margin-left: 20px;
+    text-align: center;
+    font-weight: bold;
 }
 
 #header {
@@ -79,9 +80,9 @@ body{
     border: none;
 }
 
-main{
+main {
     width: 550px;
-    height: 1200px;
+    height: 1300px;
     background: rosybrown;
     border-radius: 40px;
     box-shadow: 5px 20px 50px #000;
@@ -90,7 +91,7 @@ main{
     left: 35%;
 }
 
-h1{
+h1 {
     color: antiquewhite;
     font-size: 70px;
     justify-content: center;
@@ -100,7 +101,7 @@ h1{
     font-style: italic;
 }
 
-.input{
+.input {
     width: 60%;
     height: 20px;
     background: #e0dede;
@@ -113,7 +114,7 @@ h1{
     border-radius: 5px;
 }
 
-.label{
+.label {
     color: antiquewhite;
     justify-content: center;
     display: flex;
@@ -121,7 +122,7 @@ h1{
     font-weight: bold;
 }
 
-#sign_up{
+#sign_up {
     padding: 10px 30px;
     background: cornsilk;
     font-size: 15px;
@@ -142,33 +143,33 @@ h1{
     font-size: 20px;
 }
 
-#sign_up:hover{
+#sign_up:hover {
     background: bisque;
 }
 
-#signup:hover{
+#signup:hover {
     background-color: coral;
     color: white;
 }
 
-#login:hover{
+#login:hover {
     background-color: coral;
     color: white;
 }
 
-#about:hover{
+#about:hover {
     background-color: coral;
     color: white;
 }
 
-#help:hover{
+#help:hover {
     background-color: coral;
     color: white;
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
 
-    main{
+    main {
         left: 27%;
     }
 
@@ -203,7 +204,7 @@ h1{
         margin-right: 10px;
     }
 
-    main{
+    main {
         left: 18%;
     }
 
@@ -222,6 +223,10 @@ h1{
 
     #logo {
         font-size: 20px;
+    }
+
+    .error {
+        font-size: 30px;
     }
 
     #login {
@@ -247,16 +252,16 @@ h1{
         margin-right: 5px;
     }
 
-    main{
+    main {
         width: 400px;
         left: 13%;
     }
 
-    #sign_up{
+    #sign_up {
         margin-left: 145px;
     }
 
-    h1{
+    h1 {
         font-size: 40px;
     }
 
@@ -279,6 +284,10 @@ h1{
         font-size: 13px;
     }
 
+    .error {
+        font-size: 20px;
+    }
+
     #login {
         padding: 10px 2px;
         font-size: 9px;
@@ -303,16 +312,16 @@ h1{
         margin-right: 2px;
     }
 
-    main{
+    main {
         width: 260px;
         left: 13%;
     }
 
-    #sign_up{
+    #sign_up {
         margin-left: 75px;
     }
 
-    h1{
+    h1 {
         font-size: 37px;
     }
 }

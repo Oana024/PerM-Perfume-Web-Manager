@@ -1,12 +1,13 @@
-body{
+body {
     margin: 0;
 }
 
-.error {
+.error-login {
     color: darkred;
+    font-weight: bold;
     font-size: 40px;
-    margin-top: 60px;
-    margin-left: 20px;
+    margin-top: 10px;
+    text-align: center;
 }
 
 #header {
@@ -79,7 +80,7 @@ body{
     border: none;
 }
 
-main{
+main {
     width: 550px;
     height: 700px;
     background: rosybrown;
@@ -90,17 +91,16 @@ main{
     left: 35%;
 }
 
-h1{
+h1 {
     color: antiquewhite;
     font-size: 60px;
     justify-content: center;
     display: flex;
-    margin: 60px;
     font-weight: bold;
     font-style: italic;
 }
 
-input{
+input {
     width: 60%;
     height: 20px;
     background: #e0dede;
@@ -113,7 +113,7 @@ input{
     border-radius: 5px;
 }
 
-label{
+label {
     color: antiquewhite;
     justify-content: center;
     display: flex;
@@ -121,7 +121,7 @@ label{
     font-weight: bold;
 }
 
-#log_in{
+#log_in {
     padding: 10px 30px;
     background: cornsilk;
     font-size: 15px;
@@ -132,33 +132,33 @@ label{
     border: none;
 }
 
-#log_in:hover{
+#log_in:hover {
     background: bisque;
 }
 
-#signup:hover{
+#signup:hover {
     background-color: coral;
     color: white;
 }
 
-#login:hover{
+#login:hover {
     background-color: coral;
     color: white;
 }
 
-#about:hover{
+#about:hover {
     background-color: coral;
     color: white;
 }
 
-#help:hover{
+#help:hover {
     background-color: coral;
     color: white;
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
 
-    main{
+    main {
         top: 17%;
         left: 27%;
     }
@@ -194,7 +194,7 @@ label{
         margin-right: 10px;
     }
 
-    main{
+    main {
         top: 17%;
         left: 18%;
     }
@@ -210,6 +210,10 @@ label{
 
     #header {
         text-indent: 5px;
+    }
+
+    .error-login {
+        font-size: 30px;
     }
 
     #logo {
@@ -239,17 +243,17 @@ label{
         margin-right: 5px;
     }
 
-    main{
+    main {
         width: 400px;
         top: 17%;
         left: 13%;
     }
 
-    #log_in{
+    #log_in {
         margin-left: 150px;
     }
 
-    h1{
+    h1 {
         font-size: 40px;
     }
 
@@ -266,6 +270,10 @@ label{
         height: 70px;
         background: rosybrown;
         text-indent: 0px;
+    }
+
+    .error-login {
+        font-size: 20px;
     }
 
     #logo {
@@ -296,18 +304,18 @@ label{
         margin-right: 2px;
     }
 
-    main{
+    main {
         width: 260px;
         height: 600px;
         top: 14%;
         left: 13%;
     }
 
-    #log_in{
+    #log_in {
         margin-left: 82px;
     }
 
-    h1{
+    h1 {
         font-size: 37px;
     }
 }
