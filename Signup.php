@@ -6,39 +6,54 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Signup</title>
-    <link rel="stylesheet" href="Signup.css" type="text/css" />
+    <link rel="stylesheet" href="Signup.css" type="text/css"/>
     <style>
-        body {background: url(https://img.uquiz.com/content/images/quiz_share_images/1597919473.jpg);}
+        body {
+            background: url(https://img.uquiz.com/content/images/quiz_share_images/1597919473.jpg);
+        }
     </style>
 </head>
 <body>
 
-<header id = "header">
-    <div id = "head">
+<header id="header">
+    <div id="head">
         <button id="logo" onclick="window.location.href='index.php'">
             Perfume-Web-Manager
         </button>
 
-        <button id = "login" onclick="window.location.href='Login.php'">
+        <button id="login" onclick="window.location.href='Login.php'">
             Login
         </button>
 
-        <button id = "signup" onclick="window.location.href='Signup.php'">
+        <button id="signup" onclick="window.location.href='Signup.php'">
             Sign Up
         </button>
 
-        <button id = "help" onclick="window.location.href='help/Help.html'">
+        <button id="help" onclick="window.location.href='help/Help.html'">
             Help
         </button>
 
-        <button id = "about" onclick="window.location.href='about/About.html'">
+        <button id="about" onclick="window.location.href='about/About.html'">
             About
         </button>
 
     </div>
 </header>
-<main id = "main">
-    <form class="sign-up-form" action = "API/user/create.php" method="POST">
+
+<main id="main">
+    <?php
+    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    if (strpos($fullUrl, "signup=email") == true) {
+        echo '<p class="error"> This email is already used!</p>';
+    } elseif (strpos($fullUrl, "signup=username") == true) {
+        echo '<p class="error"> This username is already used!</p>';
+    } elseif (strpos($fullUrl, "signup=format") == true) {
+        echo '<p class="error"> Format of email is wrong!</p>';
+    } elseif (strpos($fullUrl, "signup=date") == true) {
+        echo '<p class="error"> Format of date is wrong!</p>';
+    }
+    ?>
+    <form class="sign-up-form" action="API/user/create.php" method="POST">
         <h1>Sign up</h1>
 
         <label class="label" for="first_name">First Name</label>
@@ -79,7 +94,7 @@ session_start();
         </div>
 
         <div>
-            <input class="checkbox" type="radio" id="Aromatic"name="taste[]" value="Aromatic">
+            <input class="checkbox" type="radio" id="Aromatic" name="taste[]" value="Aromatic">
             <label class="checktext" for="Aromatic">Aromatic</label>
         </div>
 
@@ -108,30 +123,10 @@ session_start();
             <label class="checktext" for="Woody">Woody</label>
         </div>
 
-        <button id = "sign_up">
+        <button id="sign_up">
             Sign up
         </button>
     </form>
-
-    <?php
-       $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-       if(strpos($fullUrl, "signup=email") == true) {
-           echo '<p class="error"> This email is already used!</p>';
-          exit();
-     }
-      elseif (strpos($fullUrl, "signup=username") == true) {
-         echo '<p class="error"> This username is already used!</p>';
-         exit();
-     }
-      elseif(strpos($fullUrl, "signup=format") == true) {
-          echo '<p class="error"> Format of email is wrong!</p>';
-          exit();
-     }
-       elseif(strpos($fullUrl, "signup=date") == true) {
-        echo '<p class="error"> Format of date is wrong!</p>';
-          exit();
-      }
-     ?>
 </main>
 </body>
 </html>
