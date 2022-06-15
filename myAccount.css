@@ -22,6 +22,24 @@ body{
     font-weight: bold;
     font-style: italic;
     color: bisque;
+    font-family: Papyrus, fantasy;
+}
+.input{
+    color: maroon;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.label{
+    color: antiquewhite;
+    justify-content: left;
+    margin-left: 50px;
+    display: flex;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 #logout{
@@ -299,7 +317,6 @@ label{
 
     main{
         width: 260px;
-        height: 600px;
         top: 14%;
         left: 13%;
     }
