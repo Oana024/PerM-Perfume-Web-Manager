@@ -5,7 +5,7 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>My Account</title>
     <link rel="stylesheet" href="myAccount.css">
     <style>
         body {background: url(https://img.uquiz.com/content/images/quiz_share_images/1597919473.jpg);}
@@ -32,17 +32,44 @@ session_start();
 
     </div>
 </header>
+<?php
+    include_once 'API/config/Database.php';
+
+    $database = new Database();
+    $db = $database->getConnection();
+
+    //execute the SQL query and return records
+    $stmt = $db->prepare("SELECT * FROM users WHERE id = ?");
+    $stmt -> bind_param("s", $_SESSION['userId']);
+    $stmt -> execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+?>
 <main id = "main">
     <form>
         <h1>My Account</h1>
-        <label for="user_name">User name</label>
-        <input type="text" id="user_name" name="user_name" placeholder="User name"><br><br>
 
-        <label for="pswd">Password</label>
-        <input type="text" id="pswd" name="pswd" placeholder="Password"><br><br>
-        <button id = "log_in">
-            Login
-        </button>
+        <label class="label" for="first_name">First Name</label>
+        <label class="input" for="first_name"><?php echo $row['first_name'] ?></label>
+
+        <label class="label" for="last_name">Last Name</label>
+        <label class="input" for="last_name"><?php echo $row['last_name'] ?></label>
+
+        <label class="label" for="username">Username</label>
+        <label class="input" for="username"><?php echo $row['username'] ?></label>
+
+        <label class="label" for="emal">E-Mail</label>
+        <label class="input" for="emal"><?php echo $row['email'] ?></label>
+
+        <label class="label" for="birth_date">Birth Date</label>
+        <label class="input" for="birth_date"><?php echo $row['birthdate'] ?></label>
+
+        <label class="label" for="gender">Gender</label>
+        <label class="input" for="gender"><?php echo $row['gender'] ?></label>
+
+        <label class="label" for="favourite_taste">Favourite Taste</label>
+        <label class="input" for="favourite_taste"><?php echo $row['favourite_taste'] ?></label>
     </form>
 </main>
 </body>
