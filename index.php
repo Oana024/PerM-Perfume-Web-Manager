@@ -89,18 +89,32 @@
 
 </nav>
 
-<main id = "main">
-  <div class="produse">
-    <div class="c1">Produs 1</div>
-    <div class="c2">Produs 2</div>
-    <div class="c3">Produs 3</div>
-    <div class="c4">Produs 4</div>
-    <div class="c5">Produs 5</div>
-    <div class="c6">Produs 6</div>
-    <div class="c7">Produs 7</div>
-    <div class="c8">Produs 8</div>
-    <div class="c9">Produs 9</div>
-  </div>
+<main id="main">
+    <section class = "product-links">
+        <div class="wrapper">
+            <div class="product-container">
+                <?php
+
+                    include_once 'API/Config/Database.php';
+
+                    $database = new Database();
+                    $db = $database->getConnection();
+
+                    $stmt = $db->prepare("SELECT * FROM products");
+                    $stmt -> execute();
+                    $result = $stmt->get_result();
+
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo '<a href="product-page.php?product='.$row["id"].'">
+                                <div></div>
+                                    <h1 id="name">'.$row["name"].'</h1>
+                                    <p  id="price">'.$row["price"].' $</p>
+                                </a>';
+                    }
+                ?>
+            </div>
+        </div>
+    </section>
 </main>
 
 <footer id="footer">
