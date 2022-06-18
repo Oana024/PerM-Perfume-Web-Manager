@@ -67,7 +67,7 @@ $row = $result->fetch_assoc();
 
 <section id="product-detail" class="section1">
     <div class="product-image">
-        <img src="img/product/parfume1.jpg" width="100%" id="MainImg" alt="">
+        <img src="img/product/<?php echo $row['url_image']?>" width="100%" id="MainImg" alt="">
     </div>
     <div class="product-details">
         <h4><?php echo $row['brand']?></h4>
@@ -91,16 +91,16 @@ $row = $result->fetch_assoc();
     <div class="details">
         Product Details
         <p id="title">Season</p>
-        <p id="description">- toamna</p>
+        <p id="description">- <?php echo $row["season"]?></p>
 
         <p id="title">Event</p>
-        <p id="description">- Special Event</p>
+        <p id="description">- <?php echo $row["occasion"]?></p>
 
         <p id="title">Brand</p>
         <p id="description">- <?php echo $row["brand"]?></p>
 
         <p id="title">Ingredients</p>
-        <p id="description">- ingrediente</p>
+        <p id="description">- <?php echo $row["ingredients"]?></p>
     </div>
     <div class="taggs">
         Associate Taggs
