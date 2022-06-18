@@ -9,7 +9,7 @@ session_start();
     <title>Product</title>
     <link rel="stylesheet" href="product-page.css">
     <style>
-        body {background: url(https://img.uquiz.com/content/images/quiz_share_images/1597919473.jpg);}
+        body {background: url(imageback.png);}
     </style>
 </head>
 <body>
