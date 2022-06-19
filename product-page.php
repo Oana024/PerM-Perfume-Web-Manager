@@ -124,7 +124,7 @@ $row = $result->fetch_assoc();
 
             while($row1 = mysqli_fetch_assoc($result1)) {
                 echo '<a href="product-page.php?product='.$row1["id"].'">
-                                <div></div>
+                                <div style="background-image: url(img/product/'.$row1["url_image"].')"></div>
                                     <h1 id="name">'.$row1["name"].'</h1>
                                     <p  id="price">'.$row1["price"].' $</p>
                                 </a>';
