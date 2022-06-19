@@ -160,7 +160,7 @@ session_start();
 
                 while($row = mysqli_fetch_assoc($result)) {
                     echo '<a href="product-page.php?product='.$row["id"].'">
-                            <div></div>
+                            <div style="background-image: url(img/product/'.$row["url_image"].')"></div>
                                 <h1 id="name">'.$row["name"].'</h1>
                                 <p  id="price">'.$row["price"].' $</p>
                             </a>';
