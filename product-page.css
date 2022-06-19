@@ -188,11 +188,54 @@ body{
     padding: 10px 30px;
     font-size: 15px;
     font-weight: bold;
-    background: rosybrown;
+    background: Tan;
     color: black;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+}
+
+.popup{
+    width: 600px;
+    height: 600px;
+    background: LavenderBlush;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    visibility: hidden;
+    transition: trasnform 0.4s, top 0.4s;
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.label{
+    margin-top: 5px;
+    color: Maroon;
+    justify-content: center;
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.input {
+    width: 40%;
+    height: 10px;
+    background: Wheat;
+    justify-content: center;
+    display: flex;
+    margin: 0px auto;
+    padding: 17px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
 }
 
 #product-detail .product-details span{
