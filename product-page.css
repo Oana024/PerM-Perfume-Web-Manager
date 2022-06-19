@@ -243,16 +243,15 @@ body{
 }
 
 .product-container a div{
-    width: 100%;
+    width: 235px;
     height: 235px;
-    background-color: blue;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .product-container a {
-    width: 30%;
+    width: 300px;
     margin: 20px 10px 0;
     text-decoration: none;
 }
@@ -261,9 +260,9 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-content: flex-start;
-    margin-left: 10%;
+    margin-left: 5%;
 }
 
 h1#name {
