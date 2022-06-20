@@ -2,7 +2,7 @@
 
 class Comment
 {
-    private $commandTable = "products";
+    private $commandTable = "comments";
     private $connection;
     private $id;
     private $productId;
