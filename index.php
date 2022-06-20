@@ -8,6 +8,9 @@ session_start();
     <meta charset="UTF-8">
     <title>PerM</title>
     <link rel="stylesheet" href="mainpage.css">
+    <style>
+        body {background: url(imageback.png);}
+    </style>
 </head>
 
 <body>
