@@ -158,6 +158,7 @@ body{
 
 #product-detail .product-details{
     width: 50%;
+    margin-bottom: 10px;
 }
 
 #product-detail .product-details h2{
@@ -345,39 +346,62 @@ p#price {
     margin-top: 0;
 }
 
-#asociate-products{
+#title1{
     text-align: center;
     font-weight: bold;
     font-size: 40px;
     font-family: Arial, sans-serif;
 }
 
-/*-----------footer-----------*/
-
-#footer {
-    width: 100%;
-    background: rosybrown;
-    text-align: center;
+#product-comments{
+    margin-top: 50px;
+    background-color: MistyRose;
+    margin-left: 5%;
+    margin-right: 5%;
     border-radius: 10px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
 }
 
-#report {
-    margin-bottom: 5px;
-    margin-top: 5px;
-    padding: 10px 50px;
-    text-align: center;
-    background: lemonchiffon;
+#title2{
+    margin-left: 10%;
     font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 40px;
+    font-family: Arial, sans-serif;
 }
 
-#report:hover{
-    background: gold;
+#single-comment{
+    background-color: ivory;
+    margin-left: 1%;
+    margin-right: 1%;
+    border-radius: 10px;
+}
+
+#username{
+    margin-left: 10px;
+    font-family: Arial, sans-serif;
+}
+
+#comment{
+    margin-left: 20px;
+    font-family: Arial, sans-serif;
+    color: gray;
+}
+
+#comment-field{
+    display:flex;
+    margin-bottom: 20px;
+    margin-left: 1%;
+}
+
+#add-comment{
+    width: 87%;
+    height: 10px;
+    background: ivory;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 17px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
 }
 
 /*-----------redim-----------*/
@@ -410,6 +434,21 @@ p#price {
     #about {
         padding: 10px 15px;
         margin-right: 10px;
+    }
+    #title1 {
+        font-size: 30px;
+    }
+    #title2{
+        font-size: 30px;
+    }
+    #username{
+        font-size: 20px;
+    }
+    #comment{
+        font-size: 15px;
+    }
+    #add-comment{
+        height: 8px;
     }
 
 
@@ -446,6 +485,24 @@ p#price {
         padding: 10px 6px;
         font-size: 12px;
         margin-right: 5px;
+    }
+    #title1 {
+        font-size: 25px;
+    }
+    #title2{
+        font-size: 25px;
+    }
+    #username{
+        font-size: 20px;
+    }
+    #comment{
+        font-size: 15px;
+    }
+    #add-comment{
+        height: 8px;
+    }
+    #name{
+        font-size: 20px;
     }
 }
 
@@ -487,5 +544,84 @@ p#price {
         padding: 10px 0px;
         font-size: 9px;
         margin-right: 1px;
+    }
+
+    #product-detail{
+        display: inherit;
+    }
+
+    #MainImg{
+        margin-top: 10px;
+        width: 280%;
+        margin-left: 10%;
+    }
+
+    #product-detail .product-details{
+        width: 90%;
+        margin-left: 5%;
+        text-align: center;
+    }
+
+    #product-detail .product-details h2{
+        width: 100%;
+        padding: 20px 0 0px 0;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+    }
+
+    #product-detail .product-details h4{
+        font-family: Arial, sans-serif;
+    }
+
+    #product-detail .product-details h6{
+        display: block;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    #fail {
+        font-size: 20px;
+        color: maroon;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+    }
+
+    #product-detail .product-details button{
+        padding: 10px 30px;
+        font-size: 15px;
+        font-weight: bold;
+        background: Tan;
+        color: black;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+    span{
+    }
+
+    #product-detail1 .taggs, #product-detail1 .details {
+        font-size: 20px;
+    }
+
+
+    #title1 {
+        font-size: 25px;
+    }
+    #title2{
+        font-size: 25px;
+    }
+    #username{
+        font-size: 20px;
+    }
+    #comment{
+        font-size: 15px;
+    }
+    #add-comment{
+        height: 8px;
+    }
+    #name{
+        font-size: 18px;
     }
 }
