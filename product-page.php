@@ -128,19 +128,28 @@ $row = $result->fetch_assoc();
     <div class="details">
         Product Details
         <p id="title">Season</p>
-        <p id="description">- <?php echo $row["season"] ?></p>
+        <p id="description">- <?php echo $row["season"]?></p>
 
         <p id="title">Event</p>
-        <p id="description">- <?php echo $row["occasion"] ?></p>
+        <p id="description">- <?php echo $row["occasion"]?></p>
 
         <p id="title">Brand</p>
-        <p id="description">- <?php echo $row["brand"] ?></p>
+        <p id="description">- <?php echo $row["brand"]?></p>
+
+        <p id="title">Taste</p>
+        <p id="description">- <?php echo $row["taste"]?></p>
 
         <p id="title">Ingredients</p>
-        <p id="description">- <?php echo $row["ingredients"] ?></p>
+        <p id="description">- <?php echo $row["ingredients"]?></p>
     </div>
     <div class="taggs">
-        Associate Taggs
+        <div class="taggs">Associate Taggs</div>
+
+        <a id='button' href='index.php?brand=<?php $brandFilter = str_replace(" ", "_", $row["brand"]);
+        echo $brandFilter?>'><?php echo $row["brand"]?></a>
+        <a id='button' href='index.php?event=<?php $eventFilter = str_replace(" ", "_", $row["occasion"]);
+        echo $eventFilter?>'><?php echo $row["occasion"]?></a>
+        <a id='button' href='index.php?season=<?php echo $row["season"]?>'><?php echo $row["season"]?></a>
     </div>
 </section>
 <section class="product-links">
@@ -148,22 +157,16 @@ $row = $result->fetch_assoc();
         <p id="asociate-products">You might like..</p>
         <div class="product-container">
             <?php
-
-            include_once 'API/Config/Database.php';
-
-            $database = new Database();
-            $db = $database->getConnection();
-
             $stmt1 = $db->prepare("SELECT * FROM products WHERE brand = ? AND id != ? LIMIT 3");
-            $stmt1->bind_param("ss", $row["brand"], $row["id"]);
-            $stmt1->execute();
+            $stmt1 -> bind_param("ss", $row["brand"], $row["id"]);
+            $stmt1 -> execute();
             $result1 = $stmt1->get_result();
 
-            while ($row1 = mysqli_fetch_assoc($result1)) {
-                echo '<a href="product-page.php?product=' . $row1["id"] . '">
-                                <div style="background-image: url(img/product/' . $row1["url_image"] . ')"></div>
-                                    <h1 id="name">' . $row1["name"] . '</h1>
-                                    <p  id="price">' . $row1["price"] . ' $</p>
+            while($row1 = mysqli_fetch_assoc($result1)) {
+                echo '<a href="product-page.php?product='.$row1["id"].'">
+                                <div style="background-image: url(img/product/'.$row1["url_image"].')"></div>
+                                    <h1 id="name">'.$row1["name"].'</h1>
+                                    <p  id="price">'.$row1["price"].' $</p>
                                 </a>';
             }
             ?>
