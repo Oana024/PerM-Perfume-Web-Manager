@@ -84,7 +84,7 @@ $row = $result->fetch_assoc();
             echo '
                     <button type="submit" onclick="openPopup()"> Order </button>
                     <div class="popup" id="popup">
-                        <form id="comanda" action="API/product/order.php?product-id='.$id.'" method="POST">
+                        <form id="comanda" action="API/order/order.php?product-id='.$id.'" method="POST">
                             <label class="label" for="firstname">First Name</label>
                             <input class="input" type="text" id="firstname" name="firstname" placeholder="First Name" required><br><br>
                             
