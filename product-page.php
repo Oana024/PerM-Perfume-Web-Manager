@@ -81,7 +81,7 @@ $row = $result->fetch_assoc();
             echo '
                     <button type="submit" onclick="openPopup()"> Order </button>
                     <div class="popup" id="popup">
-                        <form id="comanda" action="API/product/order.php" method="POST">
+                        <form id="comanda" action="API/product/order.php?product-id='.$id.'" method="POST">
                             <label class="label" for="firstname">First Name</label>
                             <input class="input" type="text" id="firstname" name="firstname" placeholder="First Name" required><br><br>
                             
@@ -98,20 +98,12 @@ $row = $result->fetch_assoc();
                             <input class="input" type="text" id="address" name="address" placeholder="Address" required><br><br>
                             
                             <button name="submit">Submit</button>
-                            <button type="close" name="close" onclick="closePopup()">Close</button>
+                            <button name="close" onclick="closePopup()">Close</button>
                         </form>
                     </div>
                 ';
         } else {
             echo '<p id = "fail"> INDISPONIBLE </p>';
-        }
-
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            echo "apasat";
-            $newStock = $row['stock'] - 1;
-            $update_stmt = $db->prepare("UPDATE products SET stock = ? WHERE id = ?");
-            $update_stmt->bind_param("is", $newStock, $id);
-            $update_stmt->execute();
         }
         ?>
 
