@@ -236,8 +236,8 @@ body{
 
 .product-container a {
     width: 270px;
-    margin: 20px 10px 0;
     text-decoration: none;
+    margin: 20px 10px 40px;
 }
 
 .product-container{
