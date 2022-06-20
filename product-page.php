@@ -157,7 +157,7 @@ $row = $result->fetch_assoc();
 </section>
 <section class="product-links">
     <div class="wrapper">
-        <p id="asociate-products">You might like..</p>
+        <p id="title1">You might like..</p>
         <div class="product-container">
             <?php
             $stmt1 = $db->prepare("SELECT * FROM products WHERE brand = ? AND id != ? LIMIT 3");
@@ -178,7 +178,42 @@ $row = $result->fetch_assoc();
     </div>
 </section>
 <section id="product-comments" class="section1">
-    COMENTARII DE ADAUGAT
+    <p id="title2">Comments</p>
+    <div id="comments-container">
+        <?php
+        $stmt1 = $db->prepare("SELECT * FROM comments WHERE product_id = ? LIMIT 3");
+        $stmt1 -> bind_param("i",$id);
+        $stmt1 -> execute();
+        $result1 = $stmt1->get_result();
+
+        while($row1 = mysqli_fetch_assoc($result1)) {
+            $stmt2 = $db->prepare("SELECT * FROM users WHERE id = ?");
+            $stmt2 -> bind_param("i",$row1["user_id"]);
+            $stmt2 -> execute();
+            $result2 = $stmt2->get_result();
+            $row2 = $result2->fetch_assoc();
+            echo ' <div id="single-comment">
+                        <h1 id="username">'.$row2["username"].'</h1>
+                        <p  id="comment">'.$row1["review"].'</p>
+                   </div>';
+        }
+        ?>
+    </div>
+    <div class="comment-form">
+        <h1 id="username">Add a comment...</h1>
+        <div id="comment-field">
+            <?php
+            if(!isset($_SESSION['userId'])) {
+                echo '<p id = "fail">You need to be connected to add a comment</p>';
+            } else {
+                echo   '<input type="text" id="add-comment" name="comment" placeholder="Comment" required><br><br>
+                    <button id="button">
+                        Submit
+                    </button>';
+            }
+            ?>
+        </div>
+    </div>
 </section>
 
 </body>
