@@ -31,19 +31,6 @@ session_start();
 
     </div>
 </header>
-<?php
-    include_once 'API/config/Database.php';
-
-    $database = new Database();
-    $db = $database->getConnection();
-
-    $stmt = $db->prepare("SELECT * FROM users WHERE id = ?");
-    $stmt -> bind_param("s", $_SESSION['userId']);
-    $stmt -> execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
-
-?>
 <main id = "main">
     <div>
         <h1>My Account</h1>
