@@ -181,7 +181,7 @@ $row = $result->fetch_assoc();
     <p id="title2">Comments</p>
     <div id="comments-container">
         <?php
-        $stmt1 = $db->prepare("SELECT * FROM comments WHERE product_id = ? ORDER BY id DESC LIMIT 3");
+        $stmt1 = $db->prepare("SELECT * FROM comments WHERE product_id = ? ORDER BY id DESC");
         $stmt1 -> bind_param("i",$id);
         $stmt1 -> execute();
         $result1 = $stmt1->get_result();
