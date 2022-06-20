@@ -106,7 +106,7 @@ $row = $result->fetch_assoc();
                     </div>
                 ';
         } else {
-            echo '<p id = "fail"> INDISPONIBLE </p>';
+            echo '<p id = "fail"> UNAVAILABLE </p>';
         }
         ?>
 
