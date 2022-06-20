@@ -77,7 +77,10 @@ $row = $result->fetch_assoc();
         <h6>Price: <?php echo $row['price'] ?> $</h6>
 
         <?php
-        if ($row['stock'] > 1) {
+        if(!isset($_SESSION['userId'])) {
+            echo '<p id = "fail">You need to be connected to order</p>';
+        }
+        else if ($row['stock'] > 0) {
             echo '
                     <button type="submit" onclick="openPopup()"> Order </button>
                     <div class="popup" id="popup">
