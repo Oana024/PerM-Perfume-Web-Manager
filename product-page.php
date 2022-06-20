@@ -181,7 +181,7 @@ $row = $result->fetch_assoc();
     <p id="title2">Comments</p>
     <div id="comments-container">
         <?php
-        $stmt1 = $db->prepare("SELECT * FROM comments WHERE product_id = ? LIMIT 3");
+        $stmt1 = $db->prepare("SELECT * FROM comments WHERE product_id = ? ORDER BY id DESC LIMIT 3");
         $stmt1 -> bind_param("i",$id);
         $stmt1 -> execute();
         $result1 = $stmt1->get_result();
@@ -201,20 +201,40 @@ $row = $result->fetch_assoc();
     </div>
     <div class="comment-form">
         <h1 id="username">Add a comment...</h1>
-        <div id="comment-field">
-            <?php
-            if(!isset($_SESSION['userId'])) {
-                echo '<p id = "fail">You need to be connected to add a comment</p>';
-            } else {
-                echo   '<input type="text" id="add-comment" name="comment" placeholder="Comment" required><br><br>
-                    <button id="button">
+        <?php
+        if(!isset($_SESSION['userId'])) {
+            echo '<p id = "fail">You need to be connected to add a comment</p>';
+        } else {
+            echo   '
+        <form id="comment-field" action="API/comment/create.php?product-id='.$id.'" method="POST">
+                    <input type="text" id="add-comment" name="add-comment" placeholder="Comment" required><br><br>
+                    <button id="button" name="submit">
                         Submit
-                    </button>';
+                    </button>
+        </form>';
             }
             ?>
-        </div>
     </div>
 </section>
+
+<!--<script>-->
+<!--    function addComment() {-->
+<!--        var xhttp = new XMLHttpRequest();-->
+<!--        xhttp.onreadystatechange = function () {-->
+<!--            if (this.readyState == 4 && this.status == 200) {-->
+<!--                document.getElementById("response").innerHTML = this.responseText;-->
+<!--            } else {-->
+<!--                document.getElementById("response").innerHTML = this.responseText;-->
+<!--            }-->
+<!--        };-->
+<!---->
+<!--        var comment = document.getElementById('add-comment').value;-->
+<!---->
+<!--        xhttp.open("POST", "API/comment/create.php", true);-->
+<!--        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");-->
+<!--        xhttp.send("add-comment=" + comment);-->
+<!--    }-->
+<!--</script>-->
 
 </body>
 </html>
