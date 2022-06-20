@@ -2,12 +2,11 @@ body {
     margin: 0;
 }
 
-.error-login {
+#response {
     color: darkred;
-    font-weight: bold;
     font-size: 40px;
-    margin-top: 10px;
     text-align: center;
+    font-weight: bold;
 }
 
 #header {
@@ -212,7 +211,7 @@ label {
         text-indent: 5px;
     }
 
-    .error-login {
+    #response {
         font-size: 30px;
     }
 
@@ -272,7 +271,7 @@ label {
         text-indent: 0px;
     }
 
-    .error-login {
+    #response {
         font-size: 20px;
     }
 

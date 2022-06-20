@@ -19,20 +19,18 @@ $data->setPassword($_POST['pswd']);
 if(!(empty($data->getUsername())) || !(empty($data->getPassword()))){
     $result = $data->validUser();
     if($result == -1){
-        header('Location: ../../Login.php?login=user');
-        exit();
+        http_response_code(400);
+        echo "User does not exist!";
     }
     else if($result == -2){
-        header('Location: ../../Login.php?login=password');
-        exit();
+        http_response_code(403);
+        echo "Password is incorrect!";
     }
     else{
+        http_response_code(200);
         session_start();
         $_SESSION['userId'] = $result;
-        header('Location: ../../index.php?login=success');
-        exit();
+        echo "Successfully logged in";
     }
 }
-
-
 ?>

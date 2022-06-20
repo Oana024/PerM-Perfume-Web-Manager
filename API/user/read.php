@@ -33,11 +33,10 @@ if ($result->num_rows > 0) {
         array_push($userRecords["users"], $userDetails);
     }
     http_response_code(200);
+    echo $user;
     echo json_encode($userRecords);
 } else {
     http_response_code(404);
-    echo json_encode(
-        array("message" => "No user found.")
-    );
+    echo "No user found.";
 }
 ?>

@@ -8,12 +8,14 @@ session_start();
     <title>My Account</title>
     <link rel="stylesheet" href="myAccount.css">
     <style>
-        body {background: url(https://img.uquiz.com/content/images/quiz_share_images/1597919473.jpg);}
+        body {
+            background: url(https://img.uquiz.com/content/images/quiz_share_images/1597919473.jpg);
+        }
     </style>
 </head>
 <body>
-<header id = "header">
-    <div id = "head">
+<header id="header">
+    <div id="head">
         <button id="logo" onclick="window.location.href='index.php'">
             Perfume-Web-Manager
         </button>
@@ -21,32 +23,30 @@ session_start();
         <a id='logout' href='API/user/logout.php'>Logout</a>
         <a id='acc' href='myAccount.php'>Account</a>
 
-        <button id = "help" onclick="window.location.href='Help.php'">
+        <button id="help" onclick="window.location.href='Help.php'">
             Help
         </button>
 
-        <button id = "about" onclick="window.location.href='About.php'">
+        <button id="about" onclick="window.location.href='About.php'">
             About
         </button>
-
 
     </div>
 </header>
 <?php
-    include_once 'API/config/Database.php';
+include_once 'API/config/Database.php';
 
-    $database = new Database();
-    $db = $database->getConnection();
+$database = new Database();
+$db = $database->getConnection();
 
-    //execute the SQL query and return records
-    $stmt = $db->prepare("SELECT * FROM users WHERE id = ?");
-    $stmt -> bind_param("s", $_SESSION['userId']);
-    $stmt -> execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
+$stmt = $db->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->bind_param("s", $_SESSION['userId']);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
 
 ?>
-<main id = "main">
+<main id="main">
     <form>
         <h1>My Account</h1>
 
@@ -59,8 +59,8 @@ session_start();
         <label class="label" for="username">Username</label>
         <label class="input" for="username"><?php echo $row['username'] ?></label>
 
-        <label class="label" for="emal">E-Mail</label>
-        <label class="input" for="emal"><?php echo $row['email'] ?></label>
+        <label class="label" for="email">E-Mail</label>
+        <label class="input" for="email"><?php echo $row['email'] ?></label>
 
         <label class="label" for="birth_date">Birth Date</label>
         <label class="input" for="birth_date"><?php echo $row['birthdate'] ?></label>
@@ -72,5 +72,6 @@ session_start();
         <label class="input" for="favourite_taste"><?php echo $row['favourite_taste'] ?></label>
     </form>
 </main>
+
 </body>
 </html>

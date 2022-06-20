@@ -41,19 +41,7 @@ session_start();
 </header>
 
 <main id="main">
-    <?php
-    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    if (strpos($fullUrl, "signup=email") == true) {
-        echo '<p class="error"> This email is already used!</p>';
-    } elseif (strpos($fullUrl, "signup=username") == true) {
-        echo '<p class="error"> This username is already used!</p>';
-    } elseif (strpos($fullUrl, "signup=format") == true) {
-        echo '<p class="error"> Format of email is wrong!</p>';
-    } elseif (strpos($fullUrl, "signup=date") == true) {
-        echo '<p class="error"> Format of date is wrong!</p>';
-    }
-    ?>
-    <form class="sign-up-form" action="API/user/create.php" method="POST">
+    <div id="sign-up-form">
         <h1>Sign up</h1>
 
         <label class="label" for="first_name">First Name</label>
@@ -77,13 +65,13 @@ session_start();
         <label class="label">Gender</label>
 
         <div>
-            <input class="checkbox" type="radio" id="Feminine" name="gender[]" value="Feminine">
-            <label class="checktext" for="Feminine">Feminine</label>
+            <input class="checkbox" type="radio" id="women" name="gender[]" value="Women">
+            <label class="checktext" for="women">Women</label>
         </div>
 
         <div>
-            <input class="checkbox" type="radio" id="male" name="gender[]" value="Male">
-            <label class="checktext" for="male">Male</label>
+            <input class="checkbox" type="radio" id="man" name="gender[]" value="Man">
+            <label class="checktext" for="man">Male</label>
         </div>
 
         <label class="label">Select your taste:</label>
@@ -123,10 +111,65 @@ session_start();
             <label class="checktext" for="Woody">Woody</label>
         </div>
 
-        <button id="sign_up">
+        <button id="sign_up" type="submit" onclick="createUser()">
             Sign up
         </button>
-    </form>
+        <br>
+
+        <p id="response"></p>
+    </div>
+
+    <script>
+        function createUser() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("response").innerHTML = this.responseText;
+                    window.location.replace("index.php");
+                } else {
+                    document.getElementById("response").innerHTML = this.responseText;
+                }
+            };
+
+            var first_name = document.getElementById('first_name').value;
+            var last_name = document.getElementById('last_name').value;
+            var birth_date = document.getElementById('birth_date').value;
+            var email = document.getElementById('email').value;
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('pswd').value;
+
+            var gender;
+            if (document.getElementById('women').checked) {
+                gender = "Women";
+            } else if (document.getElementById('man').checked) {
+                gender = "Man";
+            }
+
+            var fav_taste;
+            if (document.getElementById('Floral').checked) {
+                fav_taste = "Floral";
+            } else if (document.getElementById('Aromatic').checked) {
+                fav_taste = "Aromatic";
+            } else if (document.getElementById('Amber').checked) {
+                fav_taste = "Amber";
+            } else if (document.getElementById('Chypre').checked) {
+                fav_taste = "Chypre";
+            } else if (document.getElementById('Citrus').checked) {
+                fav_taste = "Citrus";
+            } else if (document.getElementById('Leather').checked) {
+                fav_taste = "Leather";
+            } else if (document.getElementById('Woody').checked) {
+                fav_taste = "Woody";
+            }
+
+            xhttp.open("POST", "API/user/create.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("first_name=" + first_name + "&last_name=" + last_name + "&birth_date=" + birth_date +
+                "&email=" + email + "&username=" + username + "&pswd=" + password +
+                "&gender=" + gender + "&taste=" + fav_taste);
+        }
+    </script>
+
 </main>
 </body>
 </html>
