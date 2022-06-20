@@ -2,13 +2,13 @@ body {
     margin: 0;
 }
 
-.error {
+#response {
     color: darkred;
     font-size: 40px;
-    margin-left: 20px;
     text-align: center;
     font-weight: bold;
 }
+
 
 #header {
     padding: 10px;
@@ -54,6 +54,7 @@ body {
     color: black;
     border-radius: 5px;
     border: none;
+    margin-bottom: 50px;
 }
 
 #help {
@@ -225,7 +226,7 @@ h1 {
         font-size: 20px;
     }
 
-    .error {
+    #response {
         font-size: 30px;
     }
 
@@ -284,7 +285,7 @@ h1 {
         font-size: 13px;
     }
 
-    .error {
+    #response {
         font-size: 20px;
     }
 

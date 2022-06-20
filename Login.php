@@ -40,26 +40,42 @@ session_start();
     </div>
 </header>
 <main id="main">
-    <?php
-    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    if (strpos($fullUrl, "login=user") == true) {
-        echo '<p class="error-login"> This user does not exist!</p>';
-    } elseif (strpos($fullUrl, "login=password") == true) {
-        echo '<p class="error-login"> Password is incorrect!</p>';
-    }
-    ?>
-    <form class="login-form" action="API/user/login.php" method="POST">
+    <div class="login-form">
         <h1>Login</h1>
         <label for="username">Username</label>
         <input type="text" id="username" name="username" placeholder="Username" required><br><br>
 
         <label for="pswd">Password</label>
         <input type="password" id="pswd" name="pswd" placeholder="Password" required><br><br>
-        <button id="log_in">
+        <button id="log_in" type="submit" onclick="loginUser()">
             Login
         </button>
-    </form>
+        <br>
 
+        <p id="response"></p>
+    </div>
+
+    <script>
+        function loginUser() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("response").innerHTML = this.responseText;
+                    window.location.replace("index.php");
+                }
+                else {
+                    document.getElementById("response").innerHTML = this.responseText;
+                }
+            };
+
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('pswd').value;
+
+            xhttp.open("POST", "API/user/login.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("username=" + username + "&pswd=" + password);
+        }
+    </script>
 </main>
 </body>
 </html>
