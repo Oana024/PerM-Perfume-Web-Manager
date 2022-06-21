@@ -39,6 +39,15 @@ $order -> setSeason($row['season']);
 $order -> setOccasion($row['occasion']);
 $order -> setTaste($row['taste']);
 
+$stmt1 = $db->prepare("SELECT * FROM users WHERE id = ?");
+$stmt1->bind_param("i", $uid);
+$stmt1->execute();
+$result1 = $stmt1->get_result();
+$row1 = $result1->fetch_assoc();
+
+$order -> setUserGender($row1['gender']);
+
+
 if($order -> create()){
     http_response_code(200);
     echo "Successfully ordered";
