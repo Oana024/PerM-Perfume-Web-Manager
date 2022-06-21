@@ -157,7 +157,36 @@ session_start();
                     }
                 }
 
-                $stmt = $db->prepare($sql_stmt);
+                if($first == false) {
+                    $stmt1 = $db->prepare("SELECT favourite_taste as fav_taste FROM users WHERE id=?");
+                    $stmt1->bind_param("i", $_SESSION['userId']);
+                    $stmt1 -> execute();
+                    $result_stmt = $stmt1->get_result();
+                    $row_stmt = mysqli_fetch_assoc($result_stmt);
+
+                    $fav_taste = $row_stmt['fav_taste'];
+
+                    $stmt2 = $db->prepare("SELECT * FROM products WHERE taste=?");
+                    $stmt2->bind_param("s", $fav_taste);
+                    $stmt2->execute();
+                    $result2 = $stmt2->get_result();
+
+                    while($row2 = mysqli_fetch_assoc($result2)) {
+                        echo '<a href="product-page.php?product='.$row2["id"].'">
+                            <div style="background-image: url(img/product/'.$row2["url_image"].')"></div>
+                                <h1 id="name">'.$row2["name"].'</h1>
+                                <p  id="price">'.$row2["price"].' $</p>
+                            </a>';
+                    }
+
+                    $stmt = $db->prepare("SELECT * FROM products WHERE taste!=?");
+                    $stmt->bind_param("s", $fav_taste);
+
+                }
+                else {
+                    $stmt = $db->prepare($sql_stmt);
+                }
+
                 $stmt -> execute();
                 $result = $stmt->get_result();
 
