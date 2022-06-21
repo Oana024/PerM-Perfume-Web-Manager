@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @OA\Info(title="PerM API", version="1.0")
+ */
 class Comment
 {
     private $commandTable = "comments";
@@ -14,6 +16,12 @@ class Comment
         $this->connection = $db;
     }
 
+    /**
+     * @OA\Post(path="/PerM-Perfume-Web-Manager/API/comment/create", tags={"Comment"},
+     * @OA\Response(response="200", description="Successfully added"),
+     * @OA\Response(response="400", description="Something went wrong")
+     * )
+     */
     function create()
     {
         $stmt = $this->connection->prepare("

@@ -12,6 +12,12 @@ class Order {
         $this->connection = $db;
     }
 
+    /**
+     * @OA\Post(path="/PerM-Perfume-Web-Manager/API/order/order", tags={"Order"},
+     * @OA\Response(response="200", description="Successfully ordered"),
+     * @OA\Response(response="400", description="Failed")
+     * )
+     */
     public function create() {
         $stmt = $this->connection->prepare("
 		INSERT INTO " . $this->orderTable . "(`product_id`, `user_id`) VALUES(?,?)");

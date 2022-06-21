@@ -18,6 +18,13 @@ class User{
         $this->connection = $db;
     }
 
+    /**
+     * @OA\Post(path="/PerM-Perfume-Web-Manager/API/user/create", tags={"User"},
+     * @OA\Response(response="200", description="Successfully registered"),
+     * @OA\Response(response="400", description="Wrong data format"),
+     * @OA\Response(response="409", description="Data already exists")
+     * )
+     */
     function create()
     {
         $stmt = $this->connection->prepare("
@@ -101,6 +108,12 @@ class User{
         return $row["id"];
     }
 
+    /**
+     * @OA\Get(path="/PerM-Perfume-Web-Manager/API/user/read", tags={"User"},
+     * @OA\Response(response="200", description="Success"),
+     * @OA\Response(response="404", description="Not found")
+     * )
+     */
     function read()
     {
         if ($this->id) {
@@ -114,6 +127,12 @@ class User{
         return $result;
     }
 
+    /**
+     * @OA\Delete(path="/PerM-Perfume-Web-Manager/API/user/delete", tags={"User"},
+     * @OA\Response(response="200", description="Success"),
+     * @OA\Response(response="404", description="Not found")
+     * )
+     */
     function delete()
     {
         $stmt = $this->connection->prepare("SELECT * FROM " . $this->userTable . " WHERE id = ?");
@@ -133,6 +152,12 @@ class User{
         return false;
     }
 
+    /**
+     * @OA\Put(path="/PerM-Perfume-Web-Manager/API/user/update", tags={"User"},
+     * @OA\Response(response="200", description="Success"),
+     * @OA\Response(response="404", description="Not found")
+     * )
+     */
     function update()
     {
         $stmt = $this->connection->prepare("
