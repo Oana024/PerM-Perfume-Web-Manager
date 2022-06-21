@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,23 +15,35 @@
 
 <header id="header">
     <div id = "head">
-        <button id="logo" onclick="window.location.href='../index.php'">
+        <button id="logo" onclick="window.location.href='index.php'">
             Perfume-Web-Manager
         </button>
 
-        <button id = "login" onclick="window.location.href='../Login.php'">
-            Login
-        </button>
+        <?php
+        if(isset($_SESSION['userId'])) {
+            echo "
+                    <a id='logout' href='API/user/logout.php'>Logout</a>
+                    <a id='acc' href='myAccount.php'>Account</a>
+                ";
+        }
+        else {
+            echo "
+                <button id = \"login\" onclick=\"window.location.href='Login.php'\">
+                  Login
+                </button>
 
-        <button id = "signup" onclick="window.location.href='../Signup.php'">
-            Sign Up
-        </button>
+                <button id = \"signup\" onclick=\"window.location.href='Signup.php'\">
+                  Sign Up
+                </button>
+                ";
+        }
+        ?>
 
-        <button id = "help" onclick="window.location.href='../help/Help.html'">
+        <button id = "help" onclick="window.location.href='Help.php'">
             Help
         </button>
 
-        <button id = "about" onclick="window.location.href='../about/About.html'">
+        <button id = "about" onclick="window.location.href='About.php'">
             About
         </button>
 
@@ -49,12 +64,12 @@
         <h2 id="echipa"> Meet the Team </h2>
         <div id="persons">
             <div class="person">
-                <div style="background-image: url(../img/product/oana.jpg)"></div>
+                <div style="background-image: url(img/product/oana.jpg)"></div>
                 <h1 class="name"> Mocanu Ioana-Isabela </h1>
                 <p  class="description">Student at FII</p>
             </div>
             <div class="person">
-                <div style="background-image: url(../img/product/andreea.jpg)"></div>
+                <div style="background-image: url(img/product/andreea.jpg)"></div>
                 <h1 class="name"> Roca Andreea </h1>
                 <p  class="description">Student at FII</p>
             </div>
