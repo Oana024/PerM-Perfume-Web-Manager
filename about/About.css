@@ -94,12 +94,6 @@ body{
 
 /*------------------------------------*/
 
-#nav {
-    height: 400px;
-    width: 15%;
-    position: absolute;
-}
-
 #n1{
     margin-top: 50px;
     font-size: 20px;
@@ -117,37 +111,67 @@ body{
 #echipa {
     text-align: center;
     text-decoration: underline;
+    font-family: Arial, sans-serif;
 }
 
-.vl{
-    border-left: 6px solid black;
-    height: 100%;
-    position: absolute;
-    margin-left: 18%;
-}
-
-#main {
-    margin-top: 5%;
-    margin-left: 36%;
-    margin-right: 20%;
-    height: 520px;
+#about-us {
     background: floralwhite;
     border-radius: 20px;
     position: relative;
+    margin: 3% 10% 40px;
+}
+
+#persons{
+    display: flex;
+    justify-content: center;
 }
 
 #h1{
     text-align: center;
     font-weight: bold;
     text-decoration: underline;
+    font-family: Arial, sans-serif;
 }
 
 #text {
-    font-weight: bold;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-left: 20px;
     text-indent: 5px;
     font-size: 20px;
+    font-family: Arial, sans-serif;
+    color: dimgray;
+}
+
+.person div{
+    width: 235px;
+    height: 235px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.person{
+    margin-right: 10%;
+    margin-left: 10%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+}
+
+#team{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.name{
+
+    font-family: Arial, sans-serif;
+}
+
+.description{
+    color: dimgray;
+    font-family: Arial, sans-serif;
 }
 
 /*--------------------------------*/
@@ -179,11 +203,6 @@ body{
     #about {
         padding: 10px 15px;
         margin-right: 10px;
-    }
-
-    #main{
-        margin-left: 21%;
-        margin-right: 2%;
     }
 
     #n1, #n2{
@@ -225,11 +244,6 @@ body{
         margin-right: 5px;
     }
 
-    #main{
-        margin-left: 20%;
-        margin-right: 1%;
-    }
-
     #echipa {
         font-size: 17px;
     }
@@ -237,6 +251,35 @@ body{
     #n1, #n2{
         font-size: 15px;
     }
+
+    #persons{
+        display: inherit;
+    }
+
+    #team{
+        margin-left: 20%;
+    }
+
+    .name{
+        font-size: 20px;
+    }
+
+    .description{
+        font-size: 15px;
+    }
+
+    #text{
+        font-size: 15px;
+    }
+
+    /*.person{*/
+    /*    text-align: center;*/
+    /*}*/
+
+    /*.person div{*/
+    /*    justify-content: center;*/
+    /*    margin-left: 30%;*/
+    /*}*/
 
 }
 
@@ -325,8 +368,33 @@ body{
         width: 100%;
     }
 
-    .vl {
-        display: none;
+    #persons{
+        display: inherit;
     }
+
+    #team{
+        margin-left: 10%;
+    }
+
+    .name{
+        font-size: 20px;
+    }
+
+    .description{
+        font-size: 15px;
+    }
+
+    #text{
+         font-size: 15px;
+     }
+
+    /*.person{*/
+    /*    text-align: center;*/
+    /*}*/
+
+    /*.person div{*/
+    /*    justify-content: center;*/
+    /*    margin-left: 10%;*/
+    /*}*/
 
 }

@@ -110,17 +110,27 @@ body{
     text-align: center;
     margin-bottom: 100px;
     font-size: 30px;
+    background-color: ivory;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 10px;
 }
 
 .q {
     font-size: 25px;
-    margin-left: 2%;
-    color: blue;
+    margin-left: 5%;
+    color: maroon;
+    background-color: ivory;
+    border-radius: 10px;
+    margin-right: 5%;
 }
 
 .a {
     font-size: 20px;
     margin-left: 42%;
+    background-color: rosybrown;
+    border-radius: 10px;
+    margin-right: 5%;
 }
 
 /*--------------------------------*/
@@ -205,7 +215,7 @@ body{
     .q {
         font-size: 20px;
         margin-left: 2%;
-        color: blue;
+        color: maroon;
     }
 
     #h1 {
@@ -287,7 +297,7 @@ body{
     .q {
         font-size: 15px;
         margin-left: 2%;
-        color: blue;
+        color: maroon;
     }
 
     #h1 {
