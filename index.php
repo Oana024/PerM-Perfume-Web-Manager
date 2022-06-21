@@ -178,6 +178,22 @@ session_start();
     <button id="report" onclick="window.location.href='report/Report.html'">
         Report
     </button>
+    <?php
+        if(isset($_SESSION['userId']) == 1 ){
+            if($_SESSION['userId'] == 1) {
+                echo '<button id="report" onclick="window.location.href=\'report/RHTML.php\'">
+                            R HTML
+                        </button>
+                        <button id="report">
+                            R JSON
+                        </button>
+                        <button id="report">
+                            R PDF
+                        </button>';
+            }
+        }
+
+    ?>
 </footer>
 
 </body>
