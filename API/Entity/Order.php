@@ -9,6 +9,7 @@ class Order {
     private $season;
     private $occasion;
     private $taste;
+    private $user_gender;
 
 
     public function __construct($db)
@@ -24,14 +25,15 @@ class Order {
      */
     public function create() {
         $stmt = $this->connection->prepare("
-		INSERT INTO " . $this->orderTable . "(`product_id`, `user_id`, `brand`, `season`, `occasion`, `taste`) VALUES(?,?,?,?,?,?)");
+		INSERT INTO " . $this->orderTable . "(`product_id`, `user_id`, `brand`, `season`, `occasion`, `taste`, `user_gender`) VALUES(?,?,?,?,?,?,?)");
         $this->productId = htmlspecialchars(strip_tags($this->productId));
         $this->userId = htmlspecialchars(strip_tags($this->userId));
         $this->brand = htmlspecialchars(strip_tags($this->brand));
         $this->season = htmlspecialchars(strip_tags($this->season));
         $this->occasion = htmlspecialchars(strip_tags($this->occasion));
         $this->taste = htmlspecialchars(strip_tags($this->taste));
-        $stmt->bind_param("iissss", $this->productId, $this->userId, $this->brand, $this->season, $this->occasion, $this->taste);
+        $this->user_gender = htmlspecialchars(strip_tags($this->user_gender));
+        $stmt->bind_param("iisssss", $this->productId, $this->userId, $this->brand, $this->season, $this->occasion, $this->taste, $this->user_gender);
 
         if ($stmt->execute()) {
             return true;
@@ -133,6 +135,22 @@ class Order {
     public function setTaste($taste)
     {
         $this->taste = $taste;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserGender()
+    {
+        return $this->user_gender;
+    }
+
+    /**
+     * @param mixed $user_gender
+     */
+    public function setUserGender($user_gender)
+    {
+        $this->user_gender = $user_gender;
     }
 
 

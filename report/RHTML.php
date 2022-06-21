@@ -134,6 +134,37 @@
 
     </div>
 </section>
+
+<section>
+    <h3>
+        Vanzari in functie de profilul utilizatorului
+    </h3>
+    <table style="width:50%">
+        <tr>
+            <th>Gender</th>
+            <th>Produse Vandute</th>
+        </tr>
+        <?php
+        $stmt = $db->prepare("SELECT DISTINCT user_gender FROM orders");
+        $stmt -> execute();
+        $result = $stmt->get_result();
+
+        while($row = mysqli_fetch_assoc($result)) {
+            $stmt1 = $db->prepare("SELECT COUNT(*) AS total FROM orders WHERE user_gender = ?");
+            $stmt1 -> bind_param("s", $row["user_gender"]);
+            $stmt1 -> execute();
+            $result1 = $stmt1->get_result();
+            $row1 = mysqli_fetch_assoc($result1);
+            echo '<tr>
+                        <td>'.$row['user_gender'].'</td>
+                        <td>'.$row1['total'].'</td>';
+        }
+
+        ?>
+    </table>
+</section>
+
+
 <section>
     <h3>
         Vanzari in functie de anotimp
@@ -162,5 +193,7 @@
     ?>
     </table>
 </section>
+
+
 </body>
 </html>
