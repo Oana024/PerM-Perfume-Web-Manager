@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/API/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/API/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/API/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/API/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/API/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/API/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/API/vendor/zircote/swagger-php" />
+      <path value="$PROJECT_DIR$/API/vendor/composer" />
+    </include_path>
+  </component>
+</project>
