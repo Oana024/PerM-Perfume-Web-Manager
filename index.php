@@ -157,7 +157,7 @@ session_start();
                     }
                 }
 
-                if($first == false) {
+                if($first == false && isset($_SESSION['userId'])) {
                     $stmt1 = $db->prepare("SELECT favourite_taste as fav_taste FROM users WHERE id=?");
                     $stmt1->bind_param("i", $_SESSION['userId']);
                     $stmt1 -> execute();
