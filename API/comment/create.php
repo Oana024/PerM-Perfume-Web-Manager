@@ -27,9 +27,11 @@ $comment->setReview($_POST['add-comment']);
 
 if (!empty($comment->getReview())){
     if ($comment->create()) {
+        http_response_code(200);
         header("Location: ../../product-page.php?product=$id");
         exit();
     } else {
+        http_response_code(400);
         header("Location: ../../product-page.php?product=$id");
         exit();
     }
