@@ -26,7 +26,12 @@ if ($result->num_rows > 0) {
             "gender" => $gender,
             "price" => $price,
             "description" => $description,
-            "stock" => $stock
+            "stock" => $stock,
+            "season" => $season,
+            "occasion" => $occasion,
+            "taste" => $taste,
+            "url_image" => $url_image,
+            "ingredients" => $ingredients
         );
         array_push($itemRecords["items"], $itemDetails);
     }

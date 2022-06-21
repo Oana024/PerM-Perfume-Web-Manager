@@ -17,7 +17,9 @@ $items = new Product($db);
 $data = json_decode(file_get_contents("php://input"));
 
 if (!empty($data->name) && !empty($data->brand) && !empty($data->gender) &&
-    !empty($data->price) && !empty($data->description) && !empty($data->stock)) {
+    !empty($data->price) && !empty($data->description) && !empty($data->stock) &&
+    !empty($data->season) && !empty($data->occasion) && !empty($data->taste) &&
+    !empty($data->url_image) && !empty($data->ingredients)) {
 
     $items->setName($data->name);
     $items->setBrand($data->brand);
@@ -25,6 +27,11 @@ if (!empty($data->name) && !empty($data->brand) && !empty($data->gender) &&
     $items->setPrice($data->price);
     $items->setDescription($data->description);
     $items->setStock($data->stock);
+    $items->setSeason($data->season);
+    $items->setOccasion($data->occasion);
+    $items->setTaste($data->taste);
+    $items->setUrlImage($data->url_image);
+    $items->setIngredients($data->ingredients);
 
     if ($items->create()) {
         http_response_code(201);

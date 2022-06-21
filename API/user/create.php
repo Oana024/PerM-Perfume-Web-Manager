@@ -68,4 +68,8 @@ if (!empty($data->getFirstName()) && !empty($data->getLastName()) && !empty($dat
         echo "Email already exists";
     }
 }
+else{
+    http_response_code(400);
+    echo json_encode(array("message" => "Unable to create item. Data is incomplete."));
+}
 

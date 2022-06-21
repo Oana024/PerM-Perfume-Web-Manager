@@ -17,7 +17,7 @@ class Comment
     }
 
     /**
-     * @OA\Post(path="/PerM-Perfume-Web-Manager/API/comment/create", tags={"Comment"},
+     * @OA\Post(path="/PerM-Perfume-Web-Manager/API/comment/create.php", tags={"Comment"},
      * @OA\Response(response="200", description="Successfully added"),
      * @OA\Response(response="400", description="Something went wrong")
      * )
@@ -40,61 +40,6 @@ class Comment
 
         return false;
     }
-
-    function read()
-    {
-        if ($this->id) {
-            $stmt = $this->connection->prepare("SELECT * FROM " . $this->commandTable . " WHERE id = ?");
-            $stmt->bind_param("i", $this->id);
-        } else {
-            $stmt = $this->connection->prepare("SELECT * FROM " . $this->commandTable);
-        }
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result;
-    }
-
-    function update()
-    {
-
-        $stmt = $this->connection->prepare("
-		UPDATE " . $this->commandTable . " 
-		SET product_id= ?, user_id = ?, review = ?
-		WHERE id = ?");
-
-        $this->id = htmlspecialchars(strip_tags($this->id));
-        $this->productId = htmlspecialchars(strip_tags($this->productId));
-        $this->userId = htmlspecialchars(strip_tags($this->userId));
-        $this->review = htmlspecialchars(strip_tags($this->review));
-
-        $stmt->bind_param("iisi", $this->productId, $this->userId, $this->review, $this->id);
-
-        if ($stmt->execute()) {
-            return true;
-        }
-
-        return false;
-    }
-
-    function delete()
-    {
-        $stmt = $this->connection->prepare("SELECT * FROM " . $this->commandTable . " WHERE id = ?");
-        $stmt -> bind_param("i", $this->id);
-        $stmt -> execute();
-        $result = $stmt->get_result();
-
-        if(mysqli_num_rows($result) > 0){
-            $stmt = $this->connection->prepare("DELETE FROM " . $this->commandTable . " WHERE id = ?");
-
-            $stmt->bind_param("i", $this->id);
-
-            if ($stmt->execute()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     /**
      * @return string
      */
