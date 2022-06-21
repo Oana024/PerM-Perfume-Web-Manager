@@ -29,11 +29,11 @@ session_start();
             Sign Up
         </button>
 
-        <button id="help" onclick="window.location.href='help/Help.html'">
+        <button id="help" onclick="window.location.href='Help.php'">
             Help
         </button>
 
-        <button id="about" onclick="window.location.href='about/About.html'">
+        <button id="about" onclick="window.location.href='About.php'">
             About
         </button>
 
