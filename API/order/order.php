@@ -34,6 +34,10 @@ $order = new Order($db);
 $order -> setProductId($id);
 $uid = $_SESSION['userId'];
 $order -> setUserId($uid);
+$order -> setBrand($row['brand']);
+$order -> setSeason($row['season']);
+$order -> setOccasion($row['occasion']);
+$order -> setTaste($row['taste']);
 
 if($order -> create()){
     http_response_code(200);
