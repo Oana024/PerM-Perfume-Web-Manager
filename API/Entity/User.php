@@ -19,7 +19,7 @@ class User{
     }
 
     /**
-     * @OA\Post(path="/PerM-Perfume-Web-Manager/API/user/create", tags={"User"},
+     * @OA\Post(path="/PerM-Perfume-Web-Manager/API/user/create.php", tags={"User"},
      * @OA\Response(response="200", description="Successfully registered"),
      * @OA\Response(response="400", description="Wrong data format"),
      * @OA\Response(response="409", description="Data already exists")
@@ -109,7 +109,15 @@ class User{
     }
 
     /**
-     * @OA\Get(path="/PerM-Perfume-Web-Manager/API/user/read", tags={"User"},
+     * @OA\Get(path="/PerM-Perfume-Web-Manager/API/user/read.php?id={user_id}", tags={"User"},
+     *     @OA\Parameter(
+     *          name="user_id",
+     *          in="path",
+     *          required=true,
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
      * @OA\Response(response="200", description="Success"),
      * @OA\Response(response="404", description="Not found")
      * )
@@ -128,7 +136,15 @@ class User{
     }
 
     /**
-     * @OA\Delete(path="/PerM-Perfume-Web-Manager/API/user/delete", tags={"User"},
+     * @OA\Delete(path="/PerM-Perfume-Web-Manager/API/user/delete/{user_id}", tags={"User"},
+     *     @OA\Parameter(
+     *          name="user_id",
+     *          in="path",
+     *          required=true,
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
      * @OA\Response(response="200", description="Success"),
      * @OA\Response(response="404", description="Not found")
      * )
@@ -153,7 +169,7 @@ class User{
     }
 
     /**
-     * @OA\Put(path="/PerM-Perfume-Web-Manager/API/user/update", tags={"User"},
+     * @OA\Put(path="/PerM-Perfume-Web-Manager/API/user/update.php", tags={"User"},
      * @OA\Response(response="200", description="Success"),
      * @OA\Response(response="404", description="Not found")
      * )

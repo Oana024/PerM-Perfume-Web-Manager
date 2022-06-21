@@ -25,18 +25,4 @@ if ($items->delete()) {
     http_response_code(503);
     echo json_encode(array("message" => "Unable to delete item."));
 }
-//
-//if (!empty($data->id)) {
-//    $items->id = $data->id;
-//    if ($items->delete()) {
-//        http_response_code(200);
-//        echo json_encode(array("message" => "Item was deleted."));
-//    } else {
-//        http_response_code(503);
-//        echo json_encode(array("message" => "Unable to delete item."));
-//    }
-//} else {
-//    http_response_code(400);
-//    echo json_encode(array("message" => "Unable to delete items. Data is incomplete."));
-//}
 ?>

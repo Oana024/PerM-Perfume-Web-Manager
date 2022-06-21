@@ -13,7 +13,7 @@ class Order {
     }
 
     /**
-     * @OA\Post(path="/PerM-Perfume-Web-Manager/API/order/order", tags={"Order"},
+     * @OA\Post(path="/PerM-Perfume-Web-Manager/API/order/order.php", tags={"Order"},
      * @OA\Response(response="200", description="Successfully ordered"),
      * @OA\Response(response="400", description="Failed")
      * )
