@@ -213,10 +213,10 @@ session_start();
                 echo '<button id="report" onclick="window.location.href=\'report/RHTML.php\'">
                             R HTML
                         </button>
-                        <button id="report">
+                        <button id="report" onclick="window.location.href=\'report/RJSON.php\'">
                             R JSON
                         </button>
-                        <button id="report">
+                        <button id="report" onclick="window.location.href=\'report/RPDF.php\'">
                             R PDF
                         </button>';
             }
